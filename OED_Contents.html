@@ -1,0 +1,2850 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Open Exposure Data (OED) &mdash; OpenDataStandards 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> OpenDataStandards
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Open Exposure Data (OED)</a></li>
+<li><a class="reference internal" href="#rationale">Rationale</a><ul>
+<li><a class="reference internal" href="#oed-abbreviations">OED Abbreviations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#overview-of-oed">Overview of OED</a><ul>
+<li><a class="reference internal" href="#hierarchy">Hierarchy</a><ul>
+<li><a class="reference internal" href="#coverage">Coverage</a></li>
+<li><a class="reference internal" href="#location">Location</a></li>
+<li><a class="reference internal" href="#policy">Policy</a></li>
+<li><a class="reference internal" href="#account">Account</a></li>
+<li><a class="reference internal" href="#portfolio">Portfolio</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#oed-import-format">OED Import Format</a></li>
+<li><a class="reference internal" href="#asset-related-details">Asset Related Details</a></li>
+<li><a class="reference internal" href="#geography-and-perils">Geography and Perils</a></li>
+<li><a class="reference internal" href="#financial-details-primary-insurance">Financial Details - Primary Insurance</a></li>
+<li><a class="reference internal" href="#reinsurance">Reinsurance</a></li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OpenDataStandards</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Open Exposure Data (OED)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/OED_Contents.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="open-exposure-data-oed">
+<h1>Open Exposure Data (OED)<a class="headerlink" href="#open-exposure-data-oed" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="rationale">
+<h1>Rationale<a class="headerlink" href="#rationale" title="Permalink to this headline">¶</a></h1>
+<p>The need for a new (re)insurance industry exposure data standard arose from the lack of such an existing standard for Oasis based models. Exposure data is the starting point for catastrophe risk analysis, and without such a standard in place it is impossible to give users guidance and documentation on how to prepare their input data and enable appropriate validation within Oasis based modelling platforms.</p>
+<p>The Oasis financial model (FM) enables a wide variety of model developers to use one consistent financial model: it is a key part of the utility of the Oasis framework. However, it is important that financial fields in the exposure data correspond well with the financial model to enable the full scope of the financial model to be used. The OED has been designed from the outset to work well with, and enable the full functionality of, the Oasis FM.</p>
+<p>The OED also provides companies with a starting point for implementing a model-developer-independent exposure data repository, which is strategically beneficial as it prevents firms being locked in to any one particular model developer.</p>
+<p>Although OED is designed to work well with Oasis based models, the scope of OED is wider than Oasis. For example, financial fields exist in OED which are not yet implemented in Oasis and secondary modifiers that exist in OED which are not currently used by any Oasis based model. However, Oasis LMF continue to expand the scope of their FM with the aim to support as much of the OED functionality as possible.</p>
+<p>In the meantime, users should consult their platform / model specific documentation to understand which elements within OED are being used by a certain model at a particular time.</p>
+<div class="section" id="oed-abbreviations">
+<h2>OED Abbreviations<a class="headerlink" href="#oed-abbreviations" title="Permalink to this headline">¶</a></h2>
+<p>The following abbreviations are used in OED field names:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 83%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Abbreviation</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Acc</p></td>
+<td><p>Account</p></td>
+</tr>
+<tr class="row-odd"><td><p>Agg</p></td>
+<td><p>Aggregate</p></td>
+</tr>
+<tr class="row-even"><td><p>BI</p></td>
+<td><p>Business interruption, but also used to denote other time-based coverage insurable values such as alternative living expenses</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cond</p></td>
+<td><p>Condition (as in special condition such as sub-limit or sub-deductible)</p></td>
+</tr>
+<tr class="row-even"><td><p>Cov</p></td>
+<td><p>Coverage</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ded</p></td>
+<td><p>Deductible</p></td>
+</tr>
+<tr class="row-even"><td><p>Def</p></td>
+<td><p>Defined (as in user defined)</p></td>
+</tr>
+<tr class="row-odd"><td><p>FX</p></td>
+<td><p>Exchange rate</p></td>
+</tr>
+<tr class="row-even"><td><p>LOB</p></td>
+<td><p>Line of business</p></td>
+</tr>
+<tr class="row-odd"><td><p>Loc</p></td>
+<td><p>Location</p></td>
+</tr>
+<tr class="row-even"><td><p>Max</p></td>
+<td><p>Maximum</p></td>
+</tr>
+<tr class="row-odd"><td><p>Min</p></td>
+<td><p>Minimum</p></td>
+</tr>
+<tr class="row-even"><td><p>Occ</p></td>
+<td><p>Occurrence</p></td>
+</tr>
+<tr class="row-odd"><td><p>Org</p></td>
+<td><p>Original</p></td>
+</tr>
+<tr class="row-even"><td><p>PD</p></td>
+<td><p>Property damage</p></td>
+</tr>
+<tr class="row-odd"><td><p>POI</p></td>
+<td><p>Period of indemnity</p></td>
+</tr>
+<tr class="row-even"><td><p>Pol</p></td>
+<td><p>Policy</p></td>
+</tr>
+<tr class="row-odd"><td><p>Port</p></td>
+<td><p>Portfolio</p></td>
+</tr>
+<tr class="row-even"><td><p>Reins</p></td>
+<td><p>Reinsurance</p></td>
+</tr>
+<tr class="row-odd"><td><p>TIV</p></td>
+<td><p>Total insurable value</p></td>
+</tr>
+<tr class="row-even"><td><p>Vuln</p></td>
+<td><p>Vulnerability</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="overview-of-oed">
+<h1>Overview of OED<a class="headerlink" href="#overview-of-oed" title="Permalink to this headline">¶</a></h1>
+<p>The OED comprises of four input files which are designed to allow the user to enter data in a manageable way without needing to populate and understand the relationship between a large number of tables. This does mean that there are areas of inefficiency and duplication in the input tables: this is inevitable when trying to balance between practicality and efficiency.</p>
+<p>The four input files are described in the Input Format {enter link to that .rst here}</p>
+<div class="section" id="hierarchy">
+<h2>Hierarchy<a class="headerlink" href="#hierarchy" title="Permalink to this headline">¶</a></h2>
+<p>OED follows an organisational and financial structure hierarchy that most users of catastrophe models will be familiar with. Specifically:</p>
+<div class="section" id="coverage">
+<h3>Coverage<a class="headerlink" href="#coverage" title="Permalink to this headline">¶</a></h3>
+<p>A <strong>coverage</strong> type represents the lowest structure within the OED hierarchy and constitutes the specific type of coverage within an insurance policy. Within OED this is defined as:</p>
+<ul class="simple">
+<li><p>Buildings</p></li>
+<li><p>Other (e.g. outbuildings – ‘appurtenant’ structures or motor)</p></li>
+<li><p>Contents</p></li>
+<li><p>Business Interruption (BI) or time element coverage</p></li>
+</ul>
+<p>Primary financial structures such as limits and deductibles can be attached at coverage level as well as across property damage (PD = Buildings +Other Buildings + Contents) and across all coverages.</p>
+</div>
+<div class="section" id="location">
+<h3>Location<a class="headerlink" href="#location" title="Permalink to this headline">¶</a></h3>
+<p>A <strong>location</strong>, or site, comprises a group of coverages at one particular location. Primary financial structures, such as limits or deductibles can be applied at location level. Reinsurance financial structures, such as facultative reinsurance, can also be attached at location level.</p>
+<p>Sometimes an individual location record will actually represent a number of buildings (but perhaps because of poor data quality only the main location is known). This can be represented using the <strong>NumberOfBuildings</strong> field. Occasionally an insurer will have details about a number of individual locations that they wish to link in some way, for example a number of buildings on a university campus or on an industrial site. This can be achieved using the <strong>LocGroup</strong> field.</p>
+</div>
+<div class="section" id="policy">
+<h3>Policy<a class="headerlink" href="#policy" title="Permalink to this headline">¶</a></h3>
+<p>A <strong>policy</strong> is a specific type of financial structure that applies to a set of locations. The unique aspect of a policy is that multiple policies can exist under the same account and can apply to the same set of locations. An example of this is an insurance layer, where several layers can apply to the same underlying set of locations. Reinsurance can also apply at policy level.</p>
+<p>Within a policy there is a hierarchy of financial terms as follows:</p>
+<ul class="simple">
+<li><p>A <strong>special condition</strong> is a type of policy level financial structure where financial conditions (such as sub-limits and sub-deductibles) apply to a subset of locations.</p></li>
+<li><p><strong>Standard policy level</strong> financial structures apply after special conditions but before layers.</p></li>
+<li><p><strong>Layers</strong> apply after special conditions and standard policy level financial structures.</p></li>
+</ul>
+<p>Since multiple policies can apply to the same set of locations care must be taken when summing exposure or ground-up loss at policy level to avoid overcounting these metrics.</p>
+</div>
+<div class="section" id="account">
+<h3>Account<a class="headerlink" href="#account" title="Permalink to this headline">¶</a></h3>
+<p>An <strong>account</strong> comprises a group of policies and locations (both are needed: you cannot have a policy without a location or a location without a policy). Primary and reinsurance financial structures can apply at account level.</p>
+<p>An <strong>account group</strong> can also be specified (using the AccGroup field) which provides a means of grouping accounts together for reporting purposes. Financial structures cannot apply at account group level.</p>
+</div>
+<div class="section" id="portfolio">
+<h3>Portfolio<a class="headerlink" href="#portfolio" title="Permalink to this headline">¶</a></h3>
+<p>A <strong>portfolio</strong> comprises a number of accounts. Primary financial structures cannot apply at portfolio level, however reinsurance structures can.</p>
+<p>The table below shows the different hierarchical levels in OED and what financial terms are applicable:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 43%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Hierarchy</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Primary Financial Terms?</p></th>
+<th class="head"><p>Reinsurance Financial Terms?</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Location coverage</p></td>
+<td><p>Building, contents, business interruption (BI), other</p></td>
+<td><p>Yes</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-odd"><td><p>Location</p></td>
+<td><p>Defined through the <strong>LocNumber</strong> field; location level financial field names start with ‘Loc’</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Location group</p></td>
+<td><p>Defined through the <strong>LocGroup</strong> field</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Policy</p></td>
+<td><p>Defined through the <strong>PolNumber</strong> field; within the policy level there is a hierarchy of financial terms:</p>
+<p>Special conditions apply first; field names start with <em>‘Cond’</em>.</p>
+<p>Standard policy conditions apply after special conditions; field start with <em>‘Pol’</em>.</p>
+<p>Layers apply after special conditions; field names start with <em>‘Layer’</em>.</p>
+</td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-even"><td><p>Account</p></td>
+<td><p>Defined through the <strong>AccNumber</strong> field; account level financial term field names all start with <em>‘Acc’</em></p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Account group</p></td>
+<td><p>Defined through the <strong>AccGroup</strong> field</p></td>
+<td><p>No</p></td>
+<td><p>No</p></td>
+</tr>
+<tr class="row-even"><td><p>Portfolio</p></td>
+<td><p>Defined by the <strong>PortNumber</strong> field</p></td>
+<td><p>No</p></td>
+<td><p>Yes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="section" id="oed-import-format">
+<h1>OED Import Format<a class="headerlink" href="#oed-import-format" title="Permalink to this headline">¶</a></h1>
+<p>The import format for OED is defined by four .csv files:</p>
+<ul class="simple">
+<li><p>Location (loc)</p></li>
+<li><p>Account (acc)</p></li>
+<li><p>Reinsurance info (RIinfo)</p></li>
+<li><p>Reinsurance scope (RIscope)</p></li>
+</ul>
+<p>The fields in each file and their corresponding data type are described in the ‘OED Input Fields’ tab in the OED Data Spec spreadsheet found here:</p>
+<p><a class="reference external" href="https://github.com/OasisLMF/OpenDataStandards/tree/master/OpenExposureData/Docs">https://github.com/OasisLMF/OpenDataStandards/tree/master/OpenExposureData/Docs</a></p>
+<p>This file contains details relating to each location such as the value and type of asset (including primary and secondary modifiers), geographical information, the perils covered and the financial structures within the insurance contract relating to the location.</p>
+<p>This file is the only mandatory file to run a model and to produce the ground-up losses.</p>
+<p>For simple cases, one location is represented by one row in the file. However, for cases with location level financial structures that vary by peril, or where multiple special conditions associated with a particular location exist, one location can be represented by multiple rows. This is necessary to allow the full complexity of financial contracts to be represented in a limited number of input files.</p>
+<p>For example, a simple location covering wind (‘WW1’ – see the Perils section in document 5) and flood (‘OO1’) with a 100 deductible for buildings (which applies to the combined loss from both perils if both perils happen in a single event) could be represented as follows:</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 18%" />
+<col style="width: 12%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>LocNumber</p></th>
+<th class="head"><p>BuildingTIV</p></th>
+<th class="head"><p>LocPerilsCovered</p></th>
+<th class="head"><p>LocPeril</p></th>
+<th class="head"><p>LocDedType1Building</p></th>
+<th class="head"><p>LocDed1Building</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>100,000</p></td>
+<td><p>OO1;WW1</p></td>
+<td><p>OO1;WW1</p></td>
+<td><p>0</p></td>
+<td><p>100</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>If the same location had a 100 deductible for wind but a 1000 deductible for flood that applied to losses from each peril separately, this would be represented in the location input file as shown below:</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 18%" />
+<col style="width: 12%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>LocNumber</p></th>
+<th class="head"><p>BuildingTIV</p></th>
+<th class="head"><p>LocPerilsCovered</p></th>
+<th class="head"><p>LocPeril</p></th>
+<th class="head"><p>LocDedType1Building</p></th>
+<th class="head"><p>LocDed1Building</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>100,000</p></td>
+<td><p>OO1;WW1</p></td>
+<td><p>WW1</p></td>
+<td><p>0</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>100,000</p></td>
+<td><p>OO1;WW1</p></td>
+<td><p>OO1</p></td>
+<td><p>0</p></td>
+<td><p>1000</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The field names in the examples above are described further in documents 4, 5 and 6.</p>
+<p><a class="reference external" href="https://github.com/OasisLMF/OpenDataStandards/tree/master/OpenExposureData/Docs/src">https://github.com/OasisLMF/OpenDataStandards/tree/master/OpenExposureData/Docs/src</a></p>
+<p>The minimum fields required in a location file are <strong>LocNumber, AccNumber, PortNumber, CountryCode, LocPerilsCovered, LocCurrency, BuildingTIV, ContentsTIV, BITIV, OtherTIV</strong>.</p>
+<p>The full set of fields in a location import file can be found by filtering on ‘Loc’ in the ‘Input File’ column of the ‘OED Input Fields’ sheet within the <em>Open Exposure Data Spec</em> spreadsheet.</p>
+<p>There are over 200 potential fields that could be used within the location file. However, it is not mandatory to use a field that contains no data and so, most OED location input files will contain far fewer than 200 columns.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The account file contains details of the policies and accounts that exist within the import portfolios. Most of the fields in this file relate to financial structures, including special conditions.</p>
+<p>This file is always required when modelling for insured (or gross) losses.</p>
+<p>An account may contain multiple policies and typically, each row will represent one policy. However, for cases with policy level financial structures that vary by peril or where a policy contains multiple special conditions, one policy may have multiple rows in the account file.</p>
+<p>The minimum fields required in an account file are <strong>AccNumber</strong>, <strong>AccCurrency, PolNumber, PortNumber, PolPerilsCovered</strong>.</p>
+<p>The full set of fields in an account import file can be found by filtering on ‘Acc’ in the ‘Input File’ column of the ‘OED Input Fields’ sheet within the <em>Open Exposure Data Spec</em> spreadsheet.</p>
+<p>Similarly to the loc file, there are over 200 potential fields that could be used within the account file, but it is not mandatory to use a field that contains no data and so, most OED account input files will contain far fewer than 200 columns.</p>
+<p>For example, if account level financial terms are not required (i.e. financial terms that apply across groups of policies) then all the financial fields starting with ‘Acc’ can be omitted (removing the need for 48 fields). If special conditions are not required another 48 fields can be excluded. See the section on financial structures along with the examples for details of how the financial structure fields operate together in document 6.</p>
+<p><a class="reference external" href="https://github.com/OasisLMF/OpenDataStandards/tree/master/OpenExposureData/Docs/src">https://github.com/OasisLMF/OpenDataStandards/tree/master/OpenExposureData/Docs/src</a></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The reinsurance info file contains details of the reinsurance contracts that relate to the underlying portfolios, accounts and locations. There must be exactly one entry per reinsurance contract in this file. Any financial terms relating to reinsurance contracts should be entered in this file with the exception of the <strong>CededPercent</strong> for a surplus treaty (which should be entered in the reinsurance scope file).</p>
+<p>For a list of the reinsurance financial terms available and examples about how to specify such terms see the reinsurance section and associated examples.
+If there is no reinsurance, this import file is not required. If there is reinsurance, the minimum fields required are <strong>ReinsNumber, ReinsPeril, ReinsCurrency, InuringPriority, ReinsType, PlacedPercent</strong>.</p>
+<p><strong>ReinsNumber</strong> must be unique, as this links with the reinsurance scope file.</p>
+<p>The full set of fields in a reinsurance info import file can be found by filtering on ‘ReinsInfo’ in the ‘Input File’ column of the <em>Open Exposure Data Spec</em> spreadsheet. There are over 20 potential fields that could be used within the reinsurance info file. However, it is not mandatory to use a field that contains no data.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The reinsurance scope file contains details of three different but related pieces of information:</p>
+<ul class="simple">
+<li><p>The scope of the reinsurance contract: i.e. which portfolios, accounts, locations are covered by a particular reinsurance contract.</p></li>
+<li><p>The risk level of the reinsurance contract: i.e. for reinsurance contracts with financial structures relating to a ‘risk’, the definition of what risk means.</p></li>
+<li><p>The CededPercent for a surplus treaty: which can vary for each risk covered by the treaty.</p></li>
+</ul>
+<p>The above three points are discussed in turn below.</p>
+<p>The scope of what a reinsurance contract applies to is defined by the ten ‘filter fields’ available in the reinsurance scope file: <strong>PortNumber, AccNumber, PolNumber, LocGroup, LocNumber, CedantName, ProducerName, LOB, CountryCode, ReinsTag.</strong></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>For example:</strong></p>
+<p>If a reinsurance contract applies to a particular portfolio ‘A’ then the value ‘A’ would be entered in the <strong>PortNumber</strong> field.</p>
+<p>If reinsurance applies only to account B in portfolio A, then ‘A’ would be entered in the <strong>PortNumber</strong> field and ‘B’ would be entered in the same row in the <strong>AccNumber</strong> field. In other words, entering criteria in the same row essentially applies an <em>AND</em> condition.
+Scope information relating to the same reinsurance contract can also be applied in separate rows: in this case each row would act like an <em>OR</em> condition for the filter.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>For example:</strong></p>
+<p>If <strong>PortNumber</strong> = ‘A’ is entered in one row and <strong>AccNumber</strong> = ‘B’ is entered in a separate row, then the scope of the reinsurance policy would apply to all records that match the condition: all records in portfolio ‘A’ <em>OR</em> any records in account number ‘B’.</p>
+<p>If <strong>LocNumber</strong> is used as a scope filter then <strong>AccNumber</strong> and <strong>PortNumber</strong> must be specified too (otherwise <strong>LocNumber</strong> does not uniquely identify a location).
+If <strong>PolNumber</strong> is used as a scope filter then <strong>AccNumber</strong> and <strong>PortNumber</strong> must be specified too (otherwise <strong>PolNumber</strong> does not uniquely identify a policy).</p>
+<p>The RiskLevel of a reinsurance contract refers to the level at which ‘risk’ terms apply. A ‘risk’ can either be defined at Location ‘LOC’, Location Group ‘LGR’, Policy ‘POL’ or Account level ‘ACC’. If a reinsurance contract does not contain risk specific terms then the <strong>RiskLevel</strong> field should be left blank. Note that it is not only per-risk treaties that have risk level terms. A facultative contract, a quota share treaty or even a catastrophe XL may also have risk level terms and thus require a risk level to be defined.</p>
+<p>Although the reinsurance scope and the risk level are two different concepts, for facultative contracts and surplus treaties, the OED format requires that the risk level for a particular contract should also be used to define the scope of the contract. This is because these contracts, by their nature, either apply to individual risks (facultative) or have a ceded percent that varies by risk (surplus), and so to have scope defined by fields different to the risk level would cause ambiguity and confusion.</p>
+<p>Surplus treaties require entry of <strong>CededPercent</strong> at the risk level. For example, if the risk level within a surplus treaty is location (LOC), then the user must list every location covered by the treaty in the <strong>LocNumber</strong> field (along with <strong>AccNumber</strong> and <strong>PortNumber</strong> to uniquely identify the location within the file) as well as the <strong>CededPercent</strong> for each location.</p>
+<p>If there is no reinsurance, the reinsurance scope import file is not required. If there is reinsurance, each reinsurance entry in the reinsurance info file must have at least one entry in the reinsurance scope file; some contracts will have multiple entries in the scope file.</p>
+<p>The minimum fields required are: <strong>ReinsNumber</strong> and <strong>RiskLevel</strong>, at least one of the ten filter fields, and <strong>CededPercent</strong> for surplus treaties.
+The full set of fields in a reinsurance scope import file can be found by filtering on ‘ReinsScope’ in the Input File column of the <em>Open Exposure Data Spec</em> spreadsheet. There are over 10 potential fields that could be used within the reinsurance scope file. However, it is not mandatory to use a field that contains no data.</p>
+<p>For a list of the reinsurance financial terms available and examples about how to specify such terms see the reinsurance section and associated examples. <strong>&lt;insert links here&gt;</strong></p>
+</div>
+<div class="section" id="asset-related-details">
+<h1>Asset Related Details<a class="headerlink" href="#asset-related-details" title="Permalink to this headline">¶</a></h1>
+<p>The following sections describe the OED specification for the asset value, usage, construction, and other modifiers that can influence the susceptibility of an asset to damage from a peril.
+Coverage total insurable value (TIV)</p>
+<p>Total insurable value (TIV) for each property is captured in four location level fields:</p>
+<ul class="simple">
+<li><p><strong>BuildingTIV</strong>: The total insurable value of the buildings.</p></li>
+<li><p><strong>ContentsTIV</strong>: The total insurance value of contents and stock.</p></li>
+<li><p><strong>BITIV</strong>: The total business interruption, or other time related, total insurable value.</p></li>
+<li><p><strong>OtherTIV</strong>: The total insurable value for elements other than the main building / contents / time elements. Typically used to represent the TIV for outbuildings / ap</p></li>
+</ul>
+<p>Total insurable value is not peril dependent. The currency of the TIV is specified in the <strong>LocCurrency</strong> field.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Occupancy codes are stored in the <strong>OccupancyCode</strong> field. The occupancy type list is predominantly a one to one mapping from the AIR CEDE occupancy codes, although some extra codes have been added. The broad categories of code and the number ranges are shown in the table below.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>OED Occupancy Code Range</p></th>
+<th class="head"><p>Broad Category of Occupancy</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1000</p></td>
+<td><p>Unknown</p></td>
+</tr>
+<tr class="row-odd"><td><p>1050 – 1099</p></td>
+<td><p>Residential</p></td>
+</tr>
+<tr class="row-even"><td><p>1100 – 1149</p></td>
+<td><p>Commercial</p></td>
+</tr>
+<tr class="row-odd"><td><p>1150 – 1199</p></td>
+<td><p>Industrial</p></td>
+</tr>
+<tr class="row-even"><td><p>1200 – 1249</p></td>
+<td><p>Religion / Government / Education</p></td>
+</tr>
+<tr class="row-odd"><td><p>1250 – 1299</p></td>
+<td><p>Transportation</p></td>
+</tr>
+<tr class="row-even"><td><p>1300 – 1349</p></td>
+<td><p>Utilities</p></td>
+</tr>
+<tr class="row-odd"><td><p>1350 – 1399</p></td>
+<td><p>Miscellaneous</p></td>
+</tr>
+<tr class="row-even"><td><p>2000 – 2799</p></td>
+<td><p>Industrial Facility</p></td>
+</tr>
+<tr class="row-odd"><td><p>3000 – 3999</p></td>
+<td><p>Offshore</p></td>
+</tr>
+</tbody>
+</table>
+<p>Although the code ranges above infer an extremely long list of codes there are less than 200 distinct occupancy codes in total. Yachts and automobiles are included under construction type codes rather than occupancy codes.
+Some users may have translated from a different (original) occupancy code to the OED occupancy code but would like to store the original occupancy code information. This can be done using the <strong>OrgOccupancyScheme</strong> and <strong>OrgOccupancyCode</strong> fields.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Construction codes are stored in the <strong>ConstructionCode</strong> field. The construction type list is predominantly a one to one mapping from the AIR CEDE construction codes, although some extra codes have been added. The broad categories of code and the number ranges are shown in table below.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>OED Construction Code Range</p></th>
+<th class="head"><p>Broad Category of Construction</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>5000</p></td>
+<td><p>Unknown</p></td>
+</tr>
+<tr class="row-odd"><td><p>5050 – 5099</p></td>
+<td><p>Wood</p></td>
+</tr>
+<tr class="row-even"><td><p>5100 – 5149</p></td>
+<td><p>Masonry</p></td>
+</tr>
+<tr class="row-odd"><td><p>5150 – 5199</p></td>
+<td><p>Concrete</p></td>
+</tr>
+<tr class="row-even"><td><p>5200 – 5249</p></td>
+<td><p>Steel</p></td>
+</tr>
+<tr class="row-odd"><td><p>5250 – 5299</p></td>
+<td><p>Composite</p></td>
+</tr>
+<tr class="row-even"><td><p>5300 – 5349</p></td>
+<td><p>Special</p></td>
+</tr>
+<tr class="row-odd"><td><p>5350 – 5399</p></td>
+<td><p>Mobile Homes</p></td>
+</tr>
+<tr class="row-even"><td><p>5400 – 5449</p></td>
+<td><p>Bridges</p></td>
+</tr>
+<tr class="row-odd"><td><p>5450 – 5499</p></td>
+<td><p>Roads, Railroads, Runways</p></td>
+</tr>
+<tr class="row-even"><td><p>5500 – 5549</p></td>
+<td><p>Dams</p></td>
+</tr>
+<tr class="row-odd"><td><p>5550 – 5599</p></td>
+<td><p>Tunnels</p></td>
+</tr>
+<tr class="row-even"><td><p>5600 – 5649</p></td>
+<td><p>Storage Tanks</p></td>
+</tr>
+<tr class="row-odd"><td><p>5650 – 5699</p></td>
+<td><p>Pipelines</p></td>
+</tr>
+<tr class="row-even"><td><p>5700 – 5749</p></td>
+<td><p>Chimneys</p></td>
+</tr>
+<tr class="row-odd"><td><p>5750 – 5799</p></td>
+<td><p>Towers</p></td>
+</tr>
+<tr class="row-even"><td><p>5800 – 5849</p></td>
+<td><p>Equipment</p></td>
+</tr>
+<tr class="row-odd"><td><p>5850 – 5899</p></td>
+<td><p>Automobiles</p></td>
+</tr>
+<tr class="row-even"><td><p>5900 – 5949</p></td>
+<td><p>Yachts</p></td>
+</tr>
+<tr class="row-odd"><td><p>5950 – 5999</p></td>
+<td><p>Miscellaneous</p></td>
+</tr>
+<tr class="row-even"><td><p>6000 – 6099</p></td>
+<td><p>Marine Cargo General</p></td>
+</tr>
+<tr class="row-odd"><td><p>6100 – 6149</p></td>
+<td><p>Marine Cargo Combustible</p></td>
+</tr>
+<tr class="row-even"><td><p>6150 – 6199</p></td>
+<td><p>Marine Cargo Non-Combustible</p></td>
+</tr>
+<tr class="row-odd"><td><p>7000 - 7999</p></td>
+<td><p>Offshore</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Although the code ranges above infer a very long list of codes there are less than 200 construction codes in total.
+Some users may have translated from a different (original) construction code scheme to the OED construction code scheme but would like to store the original construction code information. This can be done using the <strong>OrgConstructionScheme</strong> and <strong>OrgConstructionCode</strong> fields.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>While different catastrophe models will use different modifiers to adjust the vulnerability of an asset, the following are the most commonly used modifiers:</p>
+<ul class="simple">
+<li><p><strong>YearBuilt</strong>: the year the building was built. <strong>YearUpgraded</strong>, <strong>RoofYearBuil</strong> are also modifiers that allow the user to add additional information.</p></li>
+<li><p><strong>NumberOfStoreys</strong>: The total number of storeys in a building. <strong>BuildingHeight</strong> is also available for the user to add in the precise height of the building if this is known. <strong>FloorsOccupied</strong> allows the specific floors in the building that are occupied to be specified.</p></li>
+<li><p><strong>NumberOfBuildings</strong>: The number of buildings represented by this location. This is commonly used to indicate the presence of aggregated data. If, instead, a user has specific details about different locations, but wants to denote a linkage of some kind between each location then the <strong>LocGroup</strong> field can be used to link individual locations (either for reporting purposes or to define a reinsurance ‘risk’ level).  <strong>CorrelationGroup</strong> can be used to denote a correlation in secondary uncertainty between groups of locations.</p></li>
+<li><p><strong>FloorArea</strong> &amp; <strong>FloorAreaUnit</strong>: The total floor area occupied, summing the area of multiple floors.</p></li>
+</ul>
+<p>Other modifiers, either peril specific or less commonly used by models, are available and are listed in the specification spreadsheet. They can be identified by filtering on the SecMod column in the ‘OED Input Fields’ sheet in the specification spreadsheet.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Despite the wide range of fields available in OED, there is always the possibility that a user needs to enter or store information without a corresponding OED field. This can be achieved through the flexi-table functionality within OED, which essentially provides a key-value pair back end table at the main hierarchical levels.
+To enter additional field / values, a user can enter additional columns: <strong>FlexiLocZZZ</strong>, <strong>FlexPolZZZ</strong>, <strong>FlexiAccZZZ</strong>, where ‘ZZZ’ contains the name of the new field.
+For example, if a user wants to store information on house colour, they could add an additional column to the location input file with the fieldname <em>FlexiLocHouseColour</em>.</p>
+</div>
+<div class="section" id="geography-and-perils">
+<h1>Geography and Perils<a class="headerlink" href="#geography-and-perils" title="Permalink to this headline">¶</a></h1>
+<p>There are several aspects to geographical information in OED:</p>
+<ul class="simple">
+<li><p>Country codes</p></li>
+<li><p>Address information fields</p></li>
+<li><p>Geocoding information</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Country codes are stored in the <strong>CountryCode</strong> field and are based on the ISO3166 alpha-2 codes with the following additions:</p>
+<ul class="simple">
+<li><p><em>XB</em> = Bonaire</p></li>
+<li><p><em>XS</em> = Saba</p></li>
+<li><p><em>XE</em> = St Eustatius</p></li>
+<li><p><em>XW</em> = Worldwide exposure (not used for modelling)</p></li>
+<li><p>Offshore regions have been added as a direct one to one mapping from AIR’s CEDE offshore codes (the AIR three letter codes have been mapped to two-character codes for storage efficiency e.g. ‘A1’ for Alaska offshore)</p></li>
+</ul>
+<p>Full details of the permitted code values are in the OED specification spreadsheet.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The following fields are available for capturing geographical information in OED:</p>
+<ul class="simple">
+<li><p><strong>StreetAddress</strong>: The building number and street</p></li>
+<li><p><strong>PostalCode</strong>: The predominant full resolution postal code used (e.g. 5-digit zip code in the US)</p></li>
+<li><p><strong>City</strong>: City name</p></li>
+<li><p><strong>AreaCode</strong>: Code representing typically the largest geographical division in a country (e.g. State code). See the Open Exposure Data Spec spreadsheet for a list of values.</p></li>
+<li><p><strong>AreaName</strong>: Description of the <strong>AreaCode</strong> (e.g. State name)</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The OED format caters for a wide variety of models from different model developers. In order to allow sufficient flexibility to cope with different user and model developer requirements we have included five pairs of flexible geographical fields: <strong>GeogScheme1 / GeogName1</strong> to <strong>GeogScheme5 / GeogName5</strong>.
+This allows model developers and users to define their own geographical schemes (defined by an appropriate GeogScheme code) each with a corresponding set of GeogName values.</p>
+<p>For example, a model developer may want to split each country up into four equal areas ‘A’, ‘B’, ‘C’, ‘D’. In this case they would define a new GeogScheme code e.g. ‘QUAD’. They would communicate to users of their model that they must specify GeogName values ‘A’, ‘B’, ‘C’ or ‘D’ for their new ‘QUAD’ GeogScheme. The model user would then populate one of the GeogScheme / GeogName pairs with ‘QUAD’ and ‘A’, ‘B’, ‘C’ or ‘D’ respectively.</p>
+<p>This provides a large amount of flexibility to cope with different user and model developer requirements.
+GeogScheme codes are up to five characters (no special characters). The latest codes can be found in the Open Exposure Data Spec spreadsheet on the OED GitHub repository in <a class="reference external" href="https://github.com/OasisLMF/OpenDataStandards/tree/master/OpenExposureData/Docs">https://github.com/OasisLMF/OpenDataStandards/tree/master/OpenExposureData/Docs</a></p>
+<p>Users can also specify their own schemes (e.g. for reporting purposes). The only requirement here is that any user defined scheme codes <strong>must start with ‘X’</strong> in order to avoid a potential code clash with future model developer schemes.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Latitude</strong> and <strong>Longitude</strong> fields are available within OED. However, a latitude and longitude pair in isolation gives no indication as to the resolution of the geocode, the confidence in the geocode or the geocoder used to derive the latitude and longitude.</p>
+<p><strong>AddressMatch</strong> allows information about the resolution of the geocode to be captured. For example, whether the latitude / longitude pair represents the centroid of a large area (e.g. a State) or the centre of an individual building.</p>
+<p><strong>GeocodeQuality</strong> allows the capture of a number between 0 and 1 representing a confidence score associated with the geocode (1 denoting perfect confidence, 0 denoting zero confidence).</p>
+<p><strong>Geocoder</strong> is a free text field that allows capture of the name and version of the geocoding engine used.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The system for capturing which perils apply to different exposure elements and financial structures is designed to be flexible and extensible. Each peril is assigned a code and shown in the table below:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 62%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Peril</p></th>
+<th class="head"><p>Input Format Peril Code</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Earthquake - Shake only</p></td>
+<td><p>QEQ</p></td>
+</tr>
+<tr class="row-odd"><td><p>Fire Following</p></td>
+<td><p>QFF</p></td>
+</tr>
+<tr class="row-even"><td><p>Tsunami</p></td>
+<td><p>QTS</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sprinkler Leakage</p></td>
+<td><p>QSL</p></td>
+</tr>
+<tr class="row-even"><td><p>Landslide</p></td>
+<td><p>QLS</p></td>
+</tr>
+<tr class="row-odd"><td><p>Liquefaction</p></td>
+<td><p>QLF</p></td>
+</tr>
+<tr class="row-even"><td><p>Tropical Cyclone</p></td>
+<td><p>WTC</p></td>
+</tr>
+<tr class="row-odd"><td><p>Extra Tropical Cyclone</p></td>
+<td><p>WEC</p></td>
+</tr>
+<tr class="row-even"><td><p>Storm Surge</p></td>
+<td><p>WSS</p></td>
+</tr>
+<tr class="row-odd"><td><p>River / Fluvial Flood</p></td>
+<td><p>ORF</p></td>
+</tr>
+<tr class="row-even"><td><p>Flash / Surface / Pluvial Flood</p></td>
+<td><p>OSF</p></td>
+</tr>
+<tr class="row-odd"><td><p>Straight-line / other convective wind</p></td>
+<td><p>XSL</p></td>
+</tr>
+<tr class="row-even"><td><p>Tornado</p></td>
+<td><p>XTD</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hail</p></td>
+<td><p>XHL</p></td>
+</tr>
+<tr class="row-even"><td><p>Snow</p></td>
+<td><p>ZSN</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ice</p></td>
+<td><p>ZIC</p></td>
+</tr>
+<tr class="row-even"><td><p>Freeze</p></td>
+<td><p>ZFZ</p></td>
+</tr>
+<tr class="row-odd"><td><p>NonCat</p></td>
+<td><p>BFR</p></td>
+</tr>
+<tr class="row-even"><td><p>Wildfire / Bushfire</p></td>
+<td><p>BBF</p></td>
+</tr>
+<tr class="row-odd"><td><p>NBCR Terrorism</p></td>
+<td><p>MNT</p></td>
+</tr>
+<tr class="row-even"><td><p>Conventional Terrorism</p></td>
+<td><p>MTR</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lightning</p></td>
+<td><p>XLT</p></td>
+</tr>
+<tr class="row-even"><td><p>Winterstorm Wind</p></td>
+<td><p>ZST</p></td>
+</tr>
+<tr class="row-odd"><td><p>Smoke</p></td>
+<td><p>BSK</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The input format codes are designed to be easier to populate and recognize by an analyst. The reason for the slightly counterintuitive form of some of the abbreviations is that they are designed so that a predominant peril can quickly be identified by searching for one particular character in the abbreviations: ‘B’ for Fire, ‘O’ for Flood, ‘Q’ for Quake, ‘X’ for Convective storm, ‘Z’ for Winter storm, ‘W’ for Wind, ‘M’ for Terrorism.</p>
+<p>As well as the individual peril codes in the above table, there are also codes for common groupings of perils as shown in the table below.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 81%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Peril Group</p></th>
+<th class="head"><p>Input Code</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Earthquake perils</p></td>
+<td><p>QQ1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Windstorm with storm surge</p></td>
+<td><p>WW1</p></td>
+</tr>
+<tr class="row-even"><td><p>Windstorm w/o storm surge</p></td>
+<td><p>WW2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Flood w/o storm surge</p></td>
+<td><p>OO1</p></td>
+</tr>
+<tr class="row-even"><td><p>Winter storm</p></td>
+<td><p>ZZ1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Convective storm</p></td>
+<td><p>XX1</p></td>
+</tr>
+<tr class="row-even"><td><p>Convective storm incl. winter storm (for RMS users)</p></td>
+<td><p>XZ1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Terrorism</p></td>
+<td><p>MM1</p></td>
+</tr>
+<tr class="row-even"><td><p>Wildfire with smoke</p></td>
+<td><p>BB1</p></td>
+</tr>
+<tr class="row-odd"><td><p>All perils</p></td>
+<td><p>AA1</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>There are several fields in the OED input tables for storing the peril codes.</p>
+<p>Firstly, there are two fields that indicate whether or not a peril is covered for a particular location or policy: <strong>LocPerilsCovered</strong> and <strong>PolPerilsCovered</strong> respectively. These can be used to exclude a certain peril completely from a location or a particular policy.</p>
+<p>Secondly, there are fields that indicate the perils that a particular level of financial structure covers: <strong>LocPeril, CondPeril, PolPeril, AccPeril</strong> and <strong>ReinsPeril</strong>. These indicate the perils that the financial terms (limits or deductibles) in that particular row of data apply to.</p>
+<p>Note that this means there are two peril code fields at location and policy level (<strong>LocPerilsCovered / LocPeril and PolPerilsCovered / PolPeril</strong>). The <strong>LocPerilsCovered</strong> and <strong>PolPerilsCovered</strong> fields define the overall coverage for a location or policy irrespective of financial fields. This makes it much easier for the analyst to filter locations or policies that cover specific perils.</p>
+<p>For all of these peril fields, the peril codes (either individual or peril-group codes) are entered separated by semi-colons. So for example, if a location covered wind (including all wind sub-perils) and earthquake (including all EQ sub-perils) then the users would enter <em>‘QQ1;WW1’</em> in the <strong>LocPerilsCovered</strong> field. If there is a policy level limit that only applies to wind, then the user would enter <em>‘WW1’</em> in the <strong>PolPerils</strong> field.</p>
+<p>The way these peril codes have been designed means there is great flexibility in indicating the coverage or exclusion of perils and allowing different limits and deductibles to apply to different perils. Some examples of this are shown in the examples part of the <strong>Financial Details</strong> section.</p>
+</div>
+<div class="section" id="financial-details-primary-insurance">
+<h1>Financial Details - Primary Insurance<a class="headerlink" href="#financial-details-primary-insurance" title="Permalink to this headline">¶</a></h1>
+<p>OED is designed to allow a wide variety of complex financial structures – beyond that currently possible in Oasis or any other catastrophe modelling platform. To encompass such a variety of financial structures (e.g. different limits for different perils, or multiple policy special conditions) within a limited set of input files (two for primary insurance) it is necessary to allow multiple rows within each file for the same location or policy. The need for this will become clearer in the examples that follow.</p>
+<p>The OED hierarchy is described in the <em>overview</em> section. Primary financial structures in OED can apply at the following levels:</p>
+<ul class="simple">
+<li><p>Location ‘Loc’</p></li>
+<li><p>Special Conditions ‘Cond’</p></li>
+<li><p>Policy ‘Pol’</p></li>
+<li><p>Account ‘Acc’</p></li>
+</ul>
+<p>The above abbreviations are used consistently throughout OED (for example in the field names).
+Limits, deductibles and minimum and maximum deductibles can be defined at each of these levels and can apply to different combinations of coverages at each of these levels as described in the next section.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Coverage values to describe which combination of coverage types a financial structure apply to are as follows:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 29%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Coverage Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>No deductible / limit</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Building</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Other (typically appurtenant structures)</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Contents</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Business Interruption (BI)</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Property Damage (PD: Building + Other + Contents)</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>All (PD + BI)</p></td>
+</tr>
+</tbody>
+</table>
+<p>These coverage values (1 to 6) are embedded in the input field names (as shown in the examples).</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The deductible and limit type fields describe whether the deductibles and limits are flat monetary amounts, or percentages of TIV, or percentages of loss:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Deductible / limit is flat monetary amount</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Deductible / limit is a percentage of loss</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Deductible / limit is a percentage of TIV</p></td>
+</tr>
+</tbody>
+</table>
+<p>There are multiple ‘Type’ fields containing the values in the table above, each representing a different combination of hierarchy, financial structure kind and coverage.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The deductible and limit code fields describe how the deductibles and limits operate. The options for deductible codes are as follows:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Deductible Code</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Regular: applies to an individual loss (or the sum of losses from an individual event depending on the hierarchy level of application)</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Annual aggregate: applies to the sum of losses over a year</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Franchise deductible: disappears when the franchise level is reached</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Non-ranking deductible: a deductible that does not count (or ‘rank’) towards a maximum annual aggregate deductible</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Residual deductible: A deductible (normally lower than the regular deductible) that applies after a maximum annual aggregate deductible amount is reached</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>CEA Homeowners: A specific type of deductible applying in a California Earthquake Authority (CEA) Homeowners policy</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>CEA Homeowners Choice: A specific type of deductible applying in a California Earthquake Authority (CEA) Homeowners Choice policy</p></td>
+</tr>
+</tbody>
+</table>
+<p>The options for limit codes are as follows:</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 86%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Limit Code</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Regular: applies to an individual loss (or the sum of losses from an individual event depending on the hierarchy level of application)</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Annual aggregate: applies to the sum of losses over a year</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>There are multiple financial fields to store the ‘Type’, ‘Code’ and actual values for the different deductible and limits reflecting the different variations of:</p>
+<ul class="simple">
+<li><p>What hierarchy the financial structure applies at: ‘Loc’, ‘Cond’, ‘Pol’ or ‘Acc’</p></li>
+<li><p>Whether the financial structure is a limit or deductible or maximum or minimum deductible: ‘Ded’, ‘Limit’, ‘MaxDed’ or ‘MinDed’</p></li>
+<li><p>The coverage that the financial structure applies to (‘1Building’ to ‘6All’)</p></li>
+</ul>
+<p>This is illustrated below:</p>
+<img alt="_images/Hierarchy.png" src="_images/Hierarchy.png" />
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>For example:</p>
+<p><strong>LocDedCode1Building</strong> is the field in the location input file that contains the code for the deductible applicable to losses from building coverages.</p>
+<p><strong>AccLimitCode6All</strong> is the field in the account input file that contains the code for the limit applicable to losses from all coverages at account level.</p>
+<p><strong>PolDed6All</strong> is the field in the account input file that contains the value of the deductible applicable to losses from all coverages at policy level.</p>
+<p><strong>LocMaxDed1Building</strong> is the field in the location input file that contains the value of the maximum deductible applicable to losses from the building coverage.</p>
+<p><strong>CondLimitType6All</strong> is the field in the account input file that contains the type of limit applicable to losses from all coverages for a special condition.</p>
+<p>The reason for having both the coverage value (1 to 6) as well as spelling out the coverage kind in the input field names is so that the users of OED can easily associate the value numbers with the coverage types.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Policy special conditions are financial structures that apply to only a subset of locations within a policy. These require three aspects: (1) the specification of the financial conditions, (2) the specification of the locations to which these financial conditions apply and (3) the specification of the order in which the special conditions apply – i.e. does a special condition apply before or after other special conditions that apply to the same locations.
+Taking these three aspects in turn.</p>
+<p>The specification of the financial details of the special condition is done in the same way as any other financial structure within OED but using the field names starting with ‘Cond’. All of the coverage values deductible and limit types and codes can be used with special conditions to specify how the special condition financial structures work. Special conditions are defined in the OED account input file and must have a <strong>CondNumber</strong> in this input file. If multiple special conditions apply within the same policy, then multiple rows (with the same <strong>AccNumber</strong> and <strong>PolNumber</strong> but different <strong>CondNumber</strong>) must be used.</p>
+<p>The definition of the locations that each special condition applies to is done by specifying a <strong>CondNumber</strong> on each location (in the location input file) that corresponds with the <strong>CondNumber</strong> in the account input file.
+The definition of the order in which special conditions apply is done through the <strong>CondPriority</strong> field in the location input file: if multiple special conditions apply to the same location then multiple rows must be used in the location input file. Each location row will be identical apart from <strong>CondNumber</strong> and <strong>CondPriority</strong> which denote the special conditions applying to the location and the order in which they apply.</p>
+<p>See example 4 in the financial structures’ examples section for an illustration of how special conditions are specified.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The following fields are available to reflect that an insurer may only have a share of a primary policy or location:</p>
+<p><strong>LayerParticipation</strong> represents the share that an insurer has in a policy.</p>
+<p><strong>LocParticipation</strong> represents the share that an insurer has in a particular location. Occasionally there are cases when this can vary within a policy (e.g. binders or offshore) and so this field is provided to allow flexibility in these circumstances.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Three currency fields are available:</p>
+<ul class="simple">
+<li><p><strong>LocCurrency</strong> contains the currency in the location file and specifies the currency for TIV and location level financial terms.</p></li>
+<li><p><strong>AccCurrency</strong> contains the currency in the account file and specifies the currency for special condition, policy and account level financial terms.</p></li>
+<li><p><strong>ReinsCurrency</strong> contains the currency in the reinsurance file and specifies the currency for reinsurance financial terms.</p></li>
+</ul>
+<p>The currency code values are predominantly those contained within the ISO4217 standard although older (for example pre-euro) codes are also allowed.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The following examples illustrate the principles discussed in the previous sections. Not all required fields are shown in the examples below – only those needed to illustrate the principles highlighted.</p>
+<p><strong>Example 1 – Personal lines with coverage deductibles</strong></p>
+<p>Personal lines data often has one location per policy / account, with financial terms only applying at location-coverage or location level. There are two ways that this could be represented in OED, either using one account / policy per location or using an account / policy to represent multiple locations reflecting some natural grouping of personal lines policies. The latter approach is more space efficient. Both approaches are described below.</p>
+<p>The tables below show 3 locations, all with the same 100,000 buildings TIV and deductibles that apply at the buildings coverage level. Location 1 has a monetary (<strong>DedType = 0</strong>) deductible of 200, location 2 has a 1% of TIV deductible (<strong>DedType = 2</strong>) and location 3 has a 5% of loss deductible (<strong>DedType = 1</strong>).</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The OED Account and Location tables using the first approach are as follows:</p>
+<p>OED Account file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 56%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>AccNumber</p></th>
+<th class="head"><p>PolNumber</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PolRef1</p></td>
+<td><p>PolRef1</p></td>
+</tr>
+<tr class="row-odd"><td><p>PolRef2</p></td>
+<td><p>PolRef2</p></td>
+</tr>
+<tr class="row-even"><td><p>PolRef3</p></td>
+<td><p>PolRef3</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Location file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>LocNumber</p></th>
+<th class="head"><p>AccNumber</p></th>
+<th class="head"><p>BuildingTIV</p></th>
+<th class="head"><p>LocDedType1Building</p></th>
+<th class="head"><p>LocDedCode1Building</p></th>
+<th class="head"><p>LocDed1Building</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>PolRef1</p></td>
+<td><p>100,000</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>200</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>PolRef2</p></td>
+<td><p>100,000</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>0.01</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>PolRef3</p></td>
+<td><p>100,000</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0.05</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Note that <strong>LocDedCode1Building = 0</strong> which means the deductible is a standard type (not an annual aggregate or franchise etc.) This field is not actually required for standard deductibles – it would default to 0 if not provided.</p>
+<p>Not all required fields are shown in the tables above; specifically, <strong>PortNumber, AccCurrency</strong> and <strong>PolPerilsCovered</strong> are required in the account table, and <strong>PortNumber, LocPerilsCovered, CountryCode, OtherTIV, ContentsTIV, BITIV</strong> and <strong>LocCurrency</strong> are required in the location table.
+The second way of representing personal lines data is to group all locations under one ‘policy’ but provide the true policy reference in the <strong>LocNumber</strong> field, as shown below:</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Account file:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>AccNumber</p></th>
+<th class="head"><p>PolNumber</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Location file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>LocNumber</p></th>
+<th class="head"><p>AccNumber</p></th>
+<th class="head"><p>BuildingTIV</p></th>
+<th class="head"><p>LocDedType1Building</p></th>
+<th class="head"><p>LocDedCode1Building</p></th>
+<th class="head"><p>LocDed1Building</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PolRef1</p></td>
+<td><p>1</p></td>
+<td><p>100,000</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>200</p></td>
+</tr>
+<tr class="row-odd"><td><p>PolRef2</p></td>
+<td><p>1</p></td>
+<td><p>100,000</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>0.01</p></td>
+</tr>
+<tr class="row-even"><td><p>PolRef3</p></td>
+<td><p>1</p></td>
+<td><p>100,000</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0.05</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>This is a more efficient approach as the size of the account table is much smaller which is relevant since personal lines portfolios can easily contain several million locations.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Example 2 – Commercial lines – multiple locations per policy with location and policy deductibles and a policy limit</strong></p>
+<p>The tables below show an example of a commercial portfolio with 3 accounts, each with 2 locations. Each location has a coverage deductible and there is an overall policy deductible and an overall policy limit.</p>
+<p>OED Account file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 19%" />
+<col style="width: 17%" />
+<col style="width: 21%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>AccNumber</p></th>
+<th class="head"><p>PolNumber</p></th>
+<th class="head"><p>PolDedType6All</p></th>
+<th class="head"><p>PolDed6All</p></th>
+<th class="head"><p>PolLimitType6All</p></th>
+<th class="head"><p>PolLimit6All</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>50,000</p></td>
+<td><p>0</p></td>
+<td><p>1,500,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>0.05</p></td>
+<td><p>0</p></td>
+<td><p>1,500,000</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0.10</p></td>
+<td><p>2</p></td>
+<td><p>0.80</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Location file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 18%" />
+<col style="width: 30%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>LocNumber</p></th>
+<th class="head"><p>AccNumber</p></th>
+<th class="head"><p>BuildingTIV</p></th>
+<th class="head"><p>LocDedType1Building</p></th>
+<th class="head"><p>LocDed1Building</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1,000,000</p></td>
+<td><p>0</p></td>
+<td><p>10,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1,000,000</p></td>
+<td><p>2</p></td>
+<td><p>0.01</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>2</p></td>
+<td><p>1,000,000</p></td>
+<td><p>1</p></td>
+<td><p>0.05</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>2</p></td>
+<td><p>2,000,000</p></td>
+<td><p>0</p></td>
+<td><p>15,000</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>3</p></td>
+<td><p>2,000,000</p></td>
+<td><p>0</p></td>
+<td><p>10,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>3</p></td>
+<td><p>2,000,000</p></td>
+<td><p>2</p></td>
+<td><p>0.10</p></td>
+</tr>
+</tbody>
+</table>
+<p>In the account table above, there are two options for specifying the policy limit: either using the <strong>PolLimit6All</strong> field (as shown) or using the <strong>LayerLimit</strong> field (not shown). If a limit is specified as anything other than a monetary amount (e.g. as a percentage of sum insured) then the <strong>PolLimit6All</strong> field must be used.</p>
+<p>If there are underlying limits before a policy layer (e.g. perhaps a sublimit for storm surge that applies to all locations) then <strong>PolLimit6All</strong> must be used. If there is only one monetary policy limit, then the user has a choice of whether to use LayerLimit or <strong>PolLimit6All</strong>. Our recommendation in this case is to use <strong>LayerLimit</strong> rather than <strong>PolLimit6All</strong>, as this may prove more efficient downstream when reporting out on main policy limits.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Example 3 – Commercial lines – multiple locations per policy with different policy level deductibles and limits for different perils</strong></p>
+<p>The tables below show an example of a commercial portfolio with 3 accounts, each with 2 locations. Each account has one policy and each policy covers earthquake <strong>(peril code = QQ1)</strong>, wind <strong>(WW1)</strong> and flood <strong>(OO1)</strong>. Each location has a coverage deductible which applies to all perils. Each policy has deductibles and limits that apply across all coverages; however the policy flood deductibles are higher than those for wind and earthquake and the flood limits are lower than those for wind and earthquake.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Account file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 17%" />
+<col style="width: 14%" />
+<col style="width: 17%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>AccNumber</p></th>
+<th class="head"><p>PolNumber</p></th>
+<th class="head"><p>PolPeril</p></th>
+<th class="head"><p>PolDedType6All</p></th>
+<th class="head"><p>PolDed6All</p></th>
+<th class="head"><p>PolLimitType6All</p></th>
+<th class="head"><p>PolLimit6All</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>QQ1;WW1</p></td>
+<td><p>0</p></td>
+<td><p>50,000</p></td>
+<td><p>0</p></td>
+<td><p>1,500,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>OO1</p></td>
+<td><p>0</p></td>
+<td><p>100,000</p></td>
+<td><p>0</p></td>
+<td><p>500,000</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>QQ1;WW1</p></td>
+<td><p>2</p></td>
+<td><p>0.05</p></td>
+<td><p>0</p></td>
+<td><p>1,500,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>OO1</p></td>
+<td><p>0</p></td>
+<td><p>500,000</p></td>
+<td><p>0</p></td>
+<td><p>1,000,000</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>QQ1;WW1</p></td>
+<td><p>1</p></td>
+<td><p>0.10</p></td>
+<td><p>2</p></td>
+<td><p>0.80</p></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>OO1</p></td>
+<td><p>1</p></td>
+<td><p>0.20</p></td>
+<td><p>2</p></td>
+<td><p>0.60</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Location file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 18%" />
+<col style="width: 31%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>LocNumber</p></th>
+<th class="head"><p>AccNumber</p></th>
+<th class="head"><p>BuildingTIV</p></th>
+<th class="head"><p>LocDedType1Building</p></th>
+<th class="head"><p>LocDed1Building</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1,000,000</p></td>
+<td><p>0</p></td>
+<td><p>10,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1,000,000</p></td>
+<td><p>2</p></td>
+<td><p>0.01</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>2</p></td>
+<td><p>1,000,000</p></td>
+<td><p>1</p></td>
+<td><p>0.05</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>2</p></td>
+<td><p>2,000,000</p></td>
+<td><p>0</p></td>
+<td><p>15,000</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>3</p></td>
+<td><p>2,000,000</p></td>
+<td><p>0</p></td>
+<td><p>10,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>3</p></td>
+<td><p>2,000,000</p></td>
+<td><p>2</p></td>
+<td><p>0.10</p></td>
+</tr>
+</tbody>
+</table>
+<p>The account table above shows one of the flexible features of the OED – the possibility of having multiple rows for the same policy in the account table. This allows different terms to be specified for different perils as indicated by the <strong>PolPeril</strong> field.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Example 4 – Commercial lines – multiple locations per policy with location and policy deductibles but with a sublimit for tier 1 wind</strong></p>
+<p>The tables below show an example of a commercial portfolio with 1 account containing 6 locations. The policy covers earthquake and wind with the same overall policy limit for both perils. However, for certain locations two different sub-limits apply for wind. We show two examples of this below, firstly where the sub-limits are not nested (e.g. Florida wind sub-limit and Texas wind sub-limit), and secondly where the sub-limits are nested (e.g. Texas tier 1 wind sub-limit and Texas overall wind sub-limit).</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Account file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>AccNumber</p></th>
+<th class="head"><p>PolNumber</p></th>
+<th class="head"><p>PolPeril</p></th>
+<th class="head"><p>PolLimit6All</p></th>
+<th class="head"><p>Cond Number</p></th>
+<th class="head"><p>Cond Priority</p></th>
+<th class="head"><p>CondPeril</p></th>
+<th class="head"><p>CondLimitType6All</p></th>
+<th class="head"><p>CondLimit6All</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>QQ1;WW1</p></td>
+<td><p>1,500,000</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>WW1</p></td>
+<td><p>0</p></td>
+<td><p>250,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>QQ1;WW1</p></td>
+<td><p>1,500,000</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>WW1</p></td>
+<td><p>0</p></td>
+<td><p>500,000</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Location file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 18%" />
+<col style="width: 23%" />
+<col style="width: 18%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>LocNumber</p></th>
+<th class="head"><p>AccNumber</p></th>
+<th class="head"><p>BuildingTIV</p></th>
+<th class="head"><p>LocDedType1Building</p></th>
+<th class="head"><p>LocDed1Building</p></th>
+<th class="head"><p>CondNumber</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1,000,000</p></td>
+<td><p>0</p></td>
+<td><p>10,000</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1,000,000</p></td>
+<td><p>2</p></td>
+<td><p>0.01</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>1,000,000</p></td>
+<td><p>1</p></td>
+<td><p>0.05</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>2,000,000</p></td>
+<td><p>0</p></td>
+<td><p>15,000</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>1</p></td>
+<td><p>2,000,000</p></td>
+<td><p>0</p></td>
+<td><p>10,000</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>1</p></td>
+<td><p>2,000,000</p></td>
+<td><p>2</p></td>
+<td><p>0.10</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>In the tables above, special condition 1 (<strong>CondNumber</strong> = 1 in the account table) applies to locations 1 and 2 (<strong>CondNumber</strong> = 1 in the location table) whereas special condition 2 applies to locations 3 and 4.</p>
+<p>In the account table, note again the use of a second row for the same account and policy to specify a second special condition. This feature of OED means that essentially an unlimited number of special conditions are possible. The <strong>CondPeril</strong> field in the account table indicates the peril (or perils) to which the special condition financial terms apply.
+In this example the special conditions are not nested – meaning that each location has no more than one special condition. In this situation the special conditions do not need an order and so the <strong>CondPriority</strong> can be the same for both conditions.</p>
+<p>In the location table, <strong>CondNumber</strong> denotes the special condition (or conditions) applicable to each location. <strong>CondNumber</strong> must match with <strong>CondNumber</strong> in the account table.</p>
+<p>If two special conditions are nested or overlap – meaning that some locations have two applicable special conditions (e.g. Texas tier 1 wind sub-limit of 250,000 (<strong>CondNumber</strong> = 1) and Texas overall wind sub-limit of 500,000 (<strong>CondNumber</strong> = 2)), the tables would be specified as shown below. The example below assumes that locations 1 and 2 are in the Texas tier 1 region, locations 3 and 4 are within Texas but not in the Tier 1 wind region, and locations 5 and 6 are outside Texas.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Account file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>AccNumber</p></th>
+<th class="head"><p>PolNumber</p></th>
+<th class="head"><p>PolPeril</p></th>
+<th class="head"><p>PolLimit6All</p></th>
+<th class="head"><p>Cond Number</p></th>
+<th class="head"><p>Cond Priority</p></th>
+<th class="head"><p>CondPeril</p></th>
+<th class="head"><p>CondLimitType6All</p></th>
+<th class="head"><p>CondLimit6All</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>QQ1; WW1</p></td>
+<td><p>1,500,000</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>WW1</p></td>
+<td><p>0</p></td>
+<td><p>250,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>QQ1; WW1</p></td>
+<td><p>1,500,000</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>WW1</p></td>
+<td><p>0</p></td>
+<td><p>500,000</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Location file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 18%" />
+<col style="width: 24%" />
+<col style="width: 18%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>LocNumber</p></th>
+<th class="head"><p>AccNumber</p></th>
+<th class="head"><p>BuildingTIV</p></th>
+<th class="head"><p>LocDedType1Building</p></th>
+<th class="head"><p>LocDed1Building</p></th>
+<th class="head"><p>CondNumber</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1,000,000</p></td>
+<td><p>0</p></td>
+<td><p>10,000</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1,000,000</p></td>
+<td><p>0</p></td>
+<td><p>10,000</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1,000,000</p></td>
+<td><p>2</p></td>
+<td><p>0.01</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1,000,000</p></td>
+<td><p>2</p></td>
+<td><p>0.01</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>1,000,000</p></td>
+<td><p>1</p></td>
+<td><p>0.05</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>2,000,000</p></td>
+<td><p>0</p></td>
+<td><p>15,000</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>1</p></td>
+<td><p>2,000,000</p></td>
+<td><p>0</p></td>
+<td><p>10,000</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>1</p></td>
+<td><p>2,000,000</p></td>
+<td><p>2</p></td>
+<td><p>0.10</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The location table now has two extra rows for locations 1 and 2 to specify a second special condition applying to these locations. The <strong>CondPriority</strong> field is used to specify the order in which these special conditions apply. The method of adding an extra location row to specify an extra hierarchy of special condition means that the OED design can cope with an unlimited number of nested special conditions. Overlapping special conditions (e.g. Texas wind sublimit and multi-State tier 1 wind sublimit) can also be specified in this way.</p>
+<p>Although not shown in the examples above, the field <strong>CondName</strong> can also be specified in the account table to provide a text description of each special condition.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Example 5 – Policy layers</strong></p>
+<p>The tables below show an example of a commercial portfolio with 1 account containing 6 locations and two policy layers. Each location has a coverage deductible and each policy has an underlying deductible applying across all coverage types.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Account file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 18%" />
+<col style="width: 13%" />
+<col style="width: 18%" />
+<col style="width: 13%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>AccNumber</p></th>
+<th class="head"><p>PolNumber</p></th>
+<th class="head"><p>PolDedType6All</p></th>
+<th class="head"><p>PolDed6All</p></th>
+<th class="head"><p>LayerAttachment</p></th>
+<th class="head"><p>LayerLimit</p></th>
+<th class="head"><p>LayerParticipation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>50,000</p></td>
+<td><p>0</p></td>
+<td><p>1,500,000</p></td>
+<td><p>0.1</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>50,000</p></td>
+<td><p>1,500,000</p></td>
+<td><p>3,500,000</p></td>
+<td><p>0.5</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Location file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 29%" />
+<col style="width: 22%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>LocNumber</p></th>
+<th class="head"><p>AccNumber</p></th>
+<th class="head"><p>BuildingTIV</p></th>
+<th class="head"><p>LocDedType1Building</p></th>
+<th class="head"><p>LocDed1Building</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1,000,000</p></td>
+<td><p>0</p></td>
+<td><p>10,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1,000,000</p></td>
+<td><p>2</p></td>
+<td><p>0.01</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>1,000,000</p></td>
+<td><p>1</p></td>
+<td><p>0.05</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>1</p></td>
+<td><p>2,000,000</p></td>
+<td><p>0</p></td>
+<td><p>15,000</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>1</p></td>
+<td><p>2,000,000</p></td>
+<td><p>0</p></td>
+<td><p>10,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>1</p></td>
+<td><p>2,000,000</p></td>
+<td><p>2</p></td>
+<td><p>0.10</p></td>
+</tr>
+</tbody>
+</table>
+<p>The two different layers in the example above have different policy numbers within the same account. The insurer has a 10% share of the first layer and a 50% share of the second layer specified within <strong>LayerParticipation</strong>. The policy level deductible specified in <strong>PolDedType6All</strong> and <strong>PolDed6All</strong> applies to losses before the layer terms apply.</p>
+<p>Although not shown in the example above, it is possible to specify a layer number for each layer using the <strong>LayerNumber</strong> field.</p>
+<p>If a policy has a limit that covers all perils and coverage types, then either <strong>PolLimit6All</strong> or <strong>LayerLimit</strong> can be used to represent this limit. In this case the recommendation is to use <strong>LayerLimit</strong> rather than <strong>PolLimit6All</strong>, as this then results in a consistent field containing the ultimate policy limit that can ease subsequent reporting.</p>
+</div>
+<div class="section" id="reinsurance">
+<h1>Reinsurance<a class="headerlink" href="#reinsurance" title="Permalink to this headline">¶</a></h1>
+<p>There are many different types of reinsurance available and many different combinations of financial terms that can apply within each type of reinsurance. The scope of each reinsurance contract, and the definition of risk level that applies within a contract (if there are per-risk terms), are also important considerations that are discussed in the following sections.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED has been designed to allow capture of a broad range of reinsurance terms without the need to enter any information directly through a user interface. The range of reinsurance types that are currently considered within OED are as follows.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The fields used to define reinsurance financial terms are given in the table below. These are all specified in the reinsurance info table, although for surplus treaties note that <strong>CededPercent</strong> must be specified in the reinsurance scope table.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 77%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RiskLimit</p></td>
+<td><p>Limit applicable to the losses from an event at the defined <strong>RiskLevel.</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>RiskAttachment</p></td>
+<td><p>Attachment applicable to the losses from an event at the defined <strong>RiskLevel.</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>OccLimit</p></td>
+<td><p>Limit applicable to the sum of losses from an event.</p></td>
+</tr>
+<tr class="row-odd"><td><p>OccAttachment</p></td>
+<td><p>Attachment applicable to the sum of losses from an event.</p></td>
+</tr>
+<tr class="row-even"><td><p>OccFranchiseDed</p></td>
+<td><p>A per-occurrence deductible that vanishes when it is exceeded.</p></td>
+</tr>
+<tr class="row-odd"><td><p>OccReverseFranchise</p></td>
+<td><p>The total event loss is excluded from the treaty if the reverse franchise threshold is exceeded.</p></td>
+</tr>
+<tr class="row-even"><td><p>AggLimit</p></td>
+<td><p>Limit applicable to the sum of losses within an <strong>AggPeriod.</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>AggAttachment</p></td>
+<td><p>Attachment applicable to the sum of losses within an <strong>AggPeriod.</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>AggPeriod</p></td>
+<td><p>The period within which to sum losses (in days).</p></td>
+</tr>
+<tr class="row-odd"><td><p>InuringPriority</p></td>
+<td><p>Indicates the order in which reinsurance applies. 1 denotes the contract that applies first.</p></td>
+</tr>
+<tr class="row-even"><td><p>Reinstatement</p></td>
+<td><p>The number of reinstatements.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CededPercent</p></td>
+<td><p>The percentage applied to the gross loss entering the reinsurance contracts before other reinsurance terms. Predominantly used for surplus treaties. Unlike all the other terms in this table, <strong>CededPercent</strong> is specified in the reinsurance scope table for surplus treaties and in the reinsurance info table for all other treaty types.</p></td>
+</tr>
+<tr class="row-even"><td><p>PlacedPercent</p></td>
+<td><p>The percentage applied to the reinsurance loss after other reinsurance terms. Predominantly used for all contracts other than surplus treaties.</p></td>
+</tr>
+<tr class="row-odd"><td><p>TreatyShare</p></td>
+<td><p>The treaty share which is applicable to the individual reinsurer.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The term ‘risk level’ in the table above refers to what is defined as a ‘risk’ in the context of the particular reinsurance treaty. The definition of what constitutes a risk is an involved subject, but the reinsured usually defines this. For example, a risk could be one building in a large spread-out site, a number of buildings defined by such a site, a combination of sites close together, or a policy layer or account.</p>
+<p>In the context of OED a risk-level is specified in the <strong>RiskLevel</strong> field in the reinsurance scope table and can be defined as either location (<em>LOC</em>), location-group (<em>LGR</em>), policy (<em>POL</em> - including individual layers) or account level (ACC). Risk level is only relevant for reinsurance contracts with risk-level terms. However, this can include facultative contracts, quota share and surplus treaties and catastrophe excess of loss contracts as well as per-risk treaties.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>There are various percentages defined in OED that are applicable to reinsurance, and several kinds of limits and attachments so it is important to be clear about the order in which they work. The main principles are outlined below.</p>
+<p>The loss applicable to a reinsurance contract is the gross loss (assuming no inuring reinsurance contracts). In other words the loss to which reinsurance terms are applied is the ground-up loss net of all primary insurance limits, deductibles and shares.</p>
+<p>The order of application of reinsurance terms is then as follows:</p>
+<ol class="arabic simple">
+<li><p><strong>CededPercent</strong> is applied to the gross loss. This applies before any other reinsurance terms including per risk terms, per occurrence terms or aggregate terms. This is typically used in surplus treaties (in the reinsurance scope table) where event limits within such treaties are always specified in terms of treaty loss (and not in terms of the gross loss). It could also be used within quota share treaties (within the reinsurance info table) if the risk or event limit terms within a quota share treaty are specified in terms of treaty loss rather than gross loss (although this is unusual).</p></li>
+<li><p>Risk terms are applied.</p></li>
+<li><p>Occurrence terms are applied.</p></li>
+<li><p>Aggregate terms are applied.</p></li>
+<li><p><strong>PlacedPercent</strong> is applied. This applies after all other reinsurance terms. This is the percentage field that is normally used for treaty types other than surplus.</p></li>
+</ol>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The examples below demonstrate how the reinsurance info and reinsurance scope tables work and interact with the account and location tables. As with the other examples in this document, not all the required fields are shown in the tables.</p>
+<p><strong>Example 1 - Facultative Reinsurance</strong></p>
+<p>The tables below demonstrate two facultative reinsurance contracts, one at location level and one at policy level.</p>
+<p>A 0.5m xs 1m location level facultative contract applies to location 2 in account 1, and a 1.2m xs 2.0m policy level facultative reinsurance contract applies to policy 1 in account 3.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Account file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 19%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>PortNumber</p></th>
+<th class="head"><p>AccNumber</p></th>
+<th class="head"><p>PolNumber</p></th>
+<th class="head"><p>PolDedType6All</p></th>
+<th class="head"><p>PolDed6All</p></th>
+<th class="head"><p>PolLimitType6All</p></th>
+<th class="head"><p>PolLimit6All</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>50,000</p></td>
+<td><p>0</p></td>
+<td><p>1,500,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>0.05</p></td>
+<td><p>0</p></td>
+<td><p>1,500,000</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0.10</p></td>
+<td><p>2</p></td>
+<td><p>0.80</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Location file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 22%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>PortNumber</p></th>
+<th class="head"><p>LocNumber</p></th>
+<th class="head"><p>AccNumber</p></th>
+<th class="head"><p>BuildingTIV</p></th>
+<th class="head"><p>LocDedType1Building</p></th>
+<th class="head"><p>LocDed1Building</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1,000,000</p></td>
+<td><p>0</p></td>
+<td><p>10,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1,000,000</p></td>
+<td><p>2</p></td>
+<td><p>0.01</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>1,000,000</p></td>
+<td><p>1</p></td>
+<td><p>0.05</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2,000,000</p></td>
+<td><p>0</p></td>
+<td><p>15,000</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>2,000,000</p></td>
+<td><p>0</p></td>
+<td><p>10,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>2,000,000</p></td>
+<td><p>2</p></td>
+<td><p>0.10</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Reinsurance Info file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 19%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ReinsNumber</p></th>
+<th class="head"><p>ReinsType</p></th>
+<th class="head"><p>RiskAttachment</p></th>
+<th class="head"><p>RiskLimit</p></th>
+<th class="head"><p>PlacedPercent</p></th>
+<th class="head"><p>InuringPriority</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>FAC</p></td>
+<td><p>1,000,000</p></td>
+<td><p>500,000</p></td>
+<td><p>1.0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>FAC</p></td>
+<td><p>2,000,000</p></td>
+<td><p>1,200,000</p></td>
+<td><p>1.0</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Reinsurance Scope file:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ReinsNumber</p></th>
+<th class="head"><p>PortNumber</p></th>
+<th class="head"><p>AccNumber</p></th>
+<th class="head"><p>PolNumber</p></th>
+<th class="head"><p>LocNumber</p></th>
+<th class="head"><p>RiskLevel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td></td>
+<td><p>2</p></td>
+<td><p>LOC</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td></td>
+<td><p>POL</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The reinsurance info table must contain one row per <strong>ReinsNumber</strong>. <strong>ReinsNumber</strong> must be unique in this table. Although not shown, the reinsurance info table must always contain the <strong>ReinsPeril</strong> field, indicating which perils the reinsurance contract covers.</p>
+<p>Facultative contracts are typically 100% placed and so <strong>PlacedPercent</strong> is 1.0. Given that these are contracts on different accounts there is no concept of one contract inuring to the benefit of the other and so the <strong>InuringPriority</strong> is 1.</p>
+<p>The reinsurance scope table must contain at least one entry for every <strong>ReinsNumber</strong> in the reinsurance info table. Although not the case in this example, it can contain more than one entry for a given <strong>ReinsNumber</strong>.</p>
+<p>Only four of the ten possible filter fields are shown in the example above: <strong>PortNumber, AccNumber, PolNumber</strong> and <strong>LocNumber</strong>.</p>
+<p>The combination of the filter fields for <strong>ReinsNumber = 1</strong> means that the facultative contract will apply to the records where the following logical statement is true:</p>
+<p><strong>PortNumber = 1</strong> AND <strong>AccNumber = 1</strong> AND <strong>LocNumber = 2</strong></p>
+<p>i.e. to location 2 in account 1 in portfolio 1.</p>
+<p>For <strong>ReinsNumber</strong> 2 the facultative contract will apply to the records where the following logical statement is true:</p>
+<p><strong>PortNumber = 1</strong> AND <strong>AccNumber = 3</strong> AND <strong>PolNumber = 1</strong></p>
+<p>i.e. to policy 1 in account 3 in portfolio 1.</p>
+<p>The <strong>RiskLevel</strong> is defined as <em>LOC</em> for <strong>ReinsNumber</strong> 1 and <em>POL</em> for <strong>ReinsNumber</strong> 2. For facultative contracts (and also for surplus treaties) the RiskLevel must match the highest resolution filter field used (i.e. <strong>LocNumber</strong> for <strong>ReinsNumber</strong> 1 and <strong>PolNumber</strong> for <strong>ReinsNumber</strong> 2).</p>
+<p>The only filter fields that can be used for facultative (and surplus treaties) are <strong>PortNumber, AccNumber, PolNumber, LocNumber</strong> and <strong>LocGroup</strong> – i.e. portfolio plus the filter fields that correspond with the different risk levels: <em>ACC, POL, LOC</em> and <em>LGR</em>.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Example 2 – Quota Share Reinsurance</strong></p>
+<p>The example shows the OED specification for a 20% quota share reinsurance contract, applying to locations within Great Britain in portfolio 1, with a risk limit of 100,000 and an event limit of 1,000,000. ‘Risk’ is defined as a location, and risk and event limits are specified in terms of gross amount (i.e. the loss before the application of the 20% quota share).</p>
+<p>OED Account file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>PortNumber</p></th>
+<th class="head"><p>AccNumber</p></th>
+<th class="head"><p>PolNumber</p></th>
+<th class="head"><p>PolDedType6All</p></th>
+<th class="head"><p>PolDed6All</p></th>
+<th class="head"><p>PolLimitType6All</p></th>
+<th class="head"><p>PolLimit6All</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>50,000</p></td>
+<td><p>0</p></td>
+<td><p>1,500,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>0.05</p></td>
+<td><p>0</p></td>
+<td><p>1,500,000</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0.10</p></td>
+<td><p>2</p></td>
+<td><p>0.80</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Location file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>PortNumber</p></th>
+<th class="head"><p>LocNumber</p></th>
+<th class="head"><p>AccNumber</p></th>
+<th class="head"><p>CountryCode</p></th>
+<th class="head"><p>BuildingTIV</p></th>
+<th class="head"><p>LocDedType1Building</p></th>
+<th class="head"><p>LocDed1Building</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>GB</p></td>
+<td><p>1,000,000</p></td>
+<td><p>0</p></td>
+<td><p>10,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>GB</p></td>
+<td><p>1,000,000</p></td>
+<td><p>2</p></td>
+<td><p>0.01</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>GB</p></td>
+<td><p>1,000,000</p></td>
+<td><p>1</p></td>
+<td><p>0.05</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>GB</p></td>
+<td><p>2,000,000</p></td>
+<td><p>0</p></td>
+<td><p>15,000</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>DE</p></td>
+<td><p>2,000,000</p></td>
+<td><p>0</p></td>
+<td><p>10,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>DE</p></td>
+<td><p>2,000,000</p></td>
+<td><p>2</p></td>
+<td><p>0.10</p></td>
+</tr>
+</tbody>
+</table>
+<p>OED Reinsurance Info file:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ReinsNumber</p></th>
+<th class="head"><p>ReinsType</p></th>
+<th class="head"><p>RiskLimit</p></th>
+<th class="head"><p>OccLimit</p></th>
+<th class="head"><p>PlacedPercent</p></th>
+<th class="head"><p>InuringPriority</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>QS</p></td>
+<td><p>100,000</p></td>
+<td><p>1,000,000</p></td>
+<td><p>0.20</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Reinsurance Scope file:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ReinsNumber</p></th>
+<th class="head"><p>PortNumber</p></th>
+<th class="head"><p>AccNumber</p></th>
+<th class="head"><p>PolNumber</p></th>
+<th class="head"><p>LocNumber</p></th>
+<th class="head"><p>CountryCode</p></th>
+<th class="head"><p>RiskLevel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>GB</p></td>
+<td><p>LOC</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>In the reinsurance info table in the example above, <strong>PlacedPercent</strong> is used to specify the 20% quota share. This means that the risk and occurrence limits will apply before the application of the 20%. In other words, the risk and occurrence terms apply to the gross figure. This is normally the way quota share treaties are worded (so that it is clear how the risk and occurrence limits relate to the attachments of other per-risk and per-occurrence contracts that the reinsured may have).</p>
+<p>However, some quota share treaties are worded with limits applying to the amount ceded to the treaty (i.e. after application of the 20%). If that is the case, then the user can specify 0.2 in the <strong>CededPercent</strong> field instead of <strong>PlacedPercent</strong>: <strong>CededPercent</strong> always applies to the incoming loss before any other terms (<strong>PlacedPercent</strong> always applies to the loss after all other terms). Alternatively, the user could gross up the limits to represent 100% values and continue to use <strong>PlacedPercent</strong>.</p>
+<p>The logic in the reinsurance scope table means that only items with <strong>PortNumber = 1</strong> AND <strong>CountryCode = GB</strong> will be covered by the quota share contract. This means that losses from locations in account 3 will not be ceded to this treaty (as the locations in account 3 are in Germany).</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Example 3 - Surplus share reinsurance</strong></p>
+<p>The example shows how a 3-line surplus treaty with a retention of 500,000 is specified in OED. The surplus treaty has an event limit of 3,000,000 (applicable to the loss ceded to the treaty, not the gross amount), and ‘risk’ is defined as the location.</p>
+<p>OED Account file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>PortNumber</p></th>
+<th class="head"><p>AccNumber</p></th>
+<th class="head"><p>PolNumber</p></th>
+<th class="head"><p>PolDedType6All</p></th>
+<th class="head"><p>PolDed6All</p></th>
+<th class="head"><p>PolLimitType6All</p></th>
+<th class="head"><p>PolLimit6All</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>50,000</p></td>
+<td><p>0</p></td>
+<td><p>1,500,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>0.05</p></td>
+<td><p>0</p></td>
+<td><p>1,500,000</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0.10</p></td>
+<td><p>2</p></td>
+<td><p>0.80</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Location file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 17%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>PortNumber</p></th>
+<th class="head"><p>LocNumber</p></th>
+<th class="head"><p>AccNumber</p></th>
+<th class="head"><p>BuildingTIV</p></th>
+<th class="head"><p>LocDedType1Building</p></th>
+<th class="head"><p>LocDed1Building</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1,000,000</p></td>
+<td><p>0</p></td>
+<td><p>10,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1,000,000</p></td>
+<td><p>2</p></td>
+<td><p>0.01</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>1,000,000</p></td>
+<td><p>1</p></td>
+<td><p>0.05</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2,000,000</p></td>
+<td><p>0</p></td>
+<td><p>15,000</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+<td><p>2,000,000</p></td>
+<td><p>0</p></td>
+<td><p>10,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>2,000,000</p></td>
+<td><p>2</p></td>
+<td><p>0.10</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Reinsurance Info file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ReinsNumber</p></th>
+<th class="head"><p>ReinsType</p></th>
+<th class="head"><p>RiskLimit</p></th>
+<th class="head"><p>OccLimit</p></th>
+<th class="head"><p>PlacedPercent</p></th>
+<th class="head"><p>InuringPriority</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>SS</p></td>
+<td><p>0</p></td>
+<td><p>3,000,000</p></td>
+<td><p>1.0</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Reinsurance Scope file:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ReinsNumber</p></th>
+<th class="head"><p>PortNumber</p></th>
+<th class="head"><p>AccNumber</p></th>
+<th class="head"><p>PolNumber</p></th>
+<th class="head"><p>LocNumber</p></th>
+<th class="head"><p>CededPercent</p></th>
+<th class="head"><p>RiskLevel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td></td>
+<td><p>1</p></td>
+<td><p>0.50</p></td>
+<td><p>LOC</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td></td>
+<td><p>2</p></td>
+<td><p>0.50</p></td>
+<td><p>LOC</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td></td>
+<td><p>1</p></td>
+<td><p>0.50</p></td>
+<td><p>LOC</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td></td>
+<td><p>2</p></td>
+<td><p>0.75</p></td>
+<td><p>LOC</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+<td></td>
+<td><p>1</p></td>
+<td><p>0.75</p></td>
+<td><p>LOC</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>3</p></td>
+<td></td>
+<td><p>2</p></td>
+<td><p>0.75</p></td>
+<td><p>LOC</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>For surplus treaties, <strong>CededPercent</strong> must be specified for each risk in the reinsurance scope table.</p>
+<p>Unlike in the previous quota share example, the 3,000,000 event limit specified in the reinsurance info table applies to losses after the application of the surplus percentage. This is because <strong>CededPercent</strong> is always used for surplus treaties, and <strong>CededPercent</strong> applies before any other terms.</p>
+<p>With surplus treaties, the following rules must be followed (they are the same as for facultative treaties):</p>
+<ul class="simple">
+<li><p>The <strong>RiskLevel</strong> must match the most detailed level of filter field (<strong>LocNumber</strong> in this case to match with <strong>RiskLevel</strong> = <em>LOC</em>).</p></li>
+<li><p>Only the filter fields <strong>PortNumber, AccNumber, PolNumber, LocNumber</strong> &amp; <strong>LocGroup</strong> can be used with surplus treaties.</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Example 4 - Per-risk and cat XL reinsurance</strong></p>
+<p>The example below shows the specification of two reinsurance treaties – both of which apply to portfolios 1 and 2, with the per-risk contract inuring to the benefit of the cat XL contract.</p>
+<p>OED Account file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>PortNumber</p></th>
+<th class="head"><p>AccNumber</p></th>
+<th class="head"><p>PolNumber</p></th>
+<th class="head"><p>PolDedType6All</p></th>
+<th class="head"><p>PolDed6All</p></th>
+<th class="head"><p>PolLimitType6All</p></th>
+<th class="head"><p>PolLimit6All</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>50,000</p></td>
+<td><p>0</p></td>
+<td><p>1,500,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>0.05</p></td>
+<td><p>0</p></td>
+<td><p>1,500,000</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0.10</p></td>
+<td><p>2</p></td>
+<td><p>0.80</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Location file:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 24%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>PortNumber</p></th>
+<th class="head"><p>LocNumber</p></th>
+<th class="head"><p>AccNumber</p></th>
+<th class="head"><p>BuildingTIV</p></th>
+<th class="head"><p>LocDedType1Building</p></th>
+<th class="head"><p>LocDed1Building</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>1,000,000</p></td>
+<td><p>0</p></td>
+<td><p>10,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1,000,000</p></td>
+<td><p>2</p></td>
+<td><p>0.01</p></td>
+</tr>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>1,000,000</p></td>
+<td><p>1</p></td>
+<td><p>0.05</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>2,000,000</p></td>
+<td><p>0</p></td>
+<td><p>15,000</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>2,000,000</p></td>
+<td><p>0</p></td>
+<td><p>10,000</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>2,000,000</p></td>
+<td><p>2</p></td>
+<td><p>0.10</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Reinsurance Info file:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ReinsNumber</p></th>
+<th class="head"><p>ReinsType</p></th>
+<th class="head"><p>RiskAttachment</p></th>
+<th class="head"><p>RiskLimit</p></th>
+<th class="head"><p>OccAttachment</p></th>
+<th class="head"><p>OccLimit</p></th>
+<th class="head"><p>InuringPriority</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>PR</p></td>
+<td><p>500,000</p></td>
+<td><p>1,500,000</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>CXL</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>3,000,000</p></td>
+<td><p>3,000,000</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>OED Reinsurance Scope file:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>ReinsNumber</p></th>
+<th class="head"><p>PortNumber</p></th>
+<th class="head"><p>AccNumber</p></th>
+<th class="head"><p>PolNumber</p></th>
+<th class="head"><p>LocNumber</p></th>
+<th class="head"><p>RiskLevel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>1</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>LOC</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>2</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td><p>LOC</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>1</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>2</p></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Note that the account and location tables now contain exposures from two portfolios.</p>
+<p>The <strong>InuringPriority</strong> field specifies the order in which treaties apply. Here the per-risk contract applies before (i.e. inures to the benefit of) the Cat XL. This means that the losses that enter the Cat XL treaty are net of any recoveries from the Per-risk treaty. The <strong>InuringPriority</strong> values do not need to be consecutive – the treaty with the lowest number will always be applied before the treaty with the higher number.</p>
+<p>The reinsurance scope table contains two rows per treaty. This is to indicate that the treaties apply to both portfolio 1 and portfolio 2. The scope of each reinsurance treaty is defined by those records that satisfy the logical statement: <strong>PortNumber</strong> = <em>1</em> OR <strong>PortNumber</strong> = <em>2</em>. i.e. records either in portfolio 1 or 2.</p>
+<p>Essentially, within each <strong>ReinsNumber</strong>, each row of the reinsurance scope table acts as an OR operator and each filtering column acts as an AND operator. Although only four reinsurance scope fields are shown in the table above, all 10 reinsurance scope filtering fields could be used to define the scope of quota share, per-risk, cat XL or aggregate XL treaties.</p>
+<p>The <strong>RiskLevel</strong> of the per-risk treaty is defined at location level (<em>LOC</em>). OED allows the risk level to vary within a treaty if needed – as defined by the <strong>RiskLevel</strong> field in the reinsurance scope table. For the Cat XL treaty in this example there are no risk terms and so the <strong>RiskLevel</strong> is left blank.</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

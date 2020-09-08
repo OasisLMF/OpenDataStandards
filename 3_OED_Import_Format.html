@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OED Import Format &mdash; OpenDataStandards 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> OpenDataStandards
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">OED Import Format</a><ul>
+<li><a class="reference internal" href="#location-loc-import-file">Location (‘loc’) Import File</a></li>
+<li><a class="reference internal" href="#account-acc-import-file">Account (acc) Import File</a></li>
+<li><a class="reference internal" href="#reinsurance-info-riinfo-import-file">Reinsurance Info (RIinfo) Import File</a></li>
+<li><a class="reference internal" href="#reinsurance-scope-riscope-import-file">Reinsurance Scope (RIscope) Import File</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OpenDataStandards</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>OED Import Format</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/3_OED_Import_Format.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="oed-import-format">
+<h1>OED Import Format<a class="headerlink" href="#oed-import-format" title="Permalink to this headline">¶</a></h1>
+<p>The import format for OED is defined by four .csv files:</p>
+<ul class="simple">
+<li><p>Location (loc)</p></li>
+<li><p>Account (acc)</p></li>
+<li><p>Reinsurance info (RIinfo)</p></li>
+<li><p>Reinsurance scope (RIscope)</p></li>
+</ul>
+<p>The fields in each file and their corresponding data type are described in the ‘OED Input Fields’ tab in the OED Data Spec spreadsheet found here:</p>
+<p><a class="reference external" href="https://github.com/OasisLMF/OpenDataStandards/tree/master/OpenExposureData/Docs">https://github.com/OasisLMF/OpenDataStandards/tree/master/OpenExposureData/Docs</a></p>
+<div class="section" id="location-loc-import-file">
+<h2>Location (‘loc’) Import File<a class="headerlink" href="#location-loc-import-file" title="Permalink to this headline">¶</a></h2>
+<p>This file contains details relating to each location such as the value and type of asset (including primary and secondary modifiers), geographical information, the perils covered and the financial structures within the insurance contract relating to the location.</p>
+<p>This file is the only mandatory file to run a model and to produce the ground-up losses.</p>
+<p>For simple cases, one location is represented by one row in the file. However, for cases with location level financial structures that vary by peril, or where multiple special conditions associated with a particular location exist, one location can be represented by multiple rows. This is necessary to allow the full complexity of financial contracts to be represented in a limited number of input files.</p>
+<p>For example, a simple location covering wind (‘WW1’ – see the Perils section in document 5) and flood (‘OO1’) with a 100 deductible for buildings (which applies to the combined loss from both perils if both perils happen in a single event) could be represented as follows:</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 18%" />
+<col style="width: 12%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>LocNumber</p></th>
+<th class="head"><p>BuildingTIV</p></th>
+<th class="head"><p>LocPerilsCovered</p></th>
+<th class="head"><p>LocPeril</p></th>
+<th class="head"><p>LocDedType1Building</p></th>
+<th class="head"><p>LocDed1Building</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>100,000</p></td>
+<td><p>OO1;WW1</p></td>
+<td><p>OO1;WW1</p></td>
+<td><p>0</p></td>
+<td><p>100</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>If the same location had a 100 deductible for wind but a 1000 deductible for flood that applied to losses from each peril separately, this would be represented in the location input file as shown below:</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 15%" />
+<col style="width: 18%" />
+<col style="width: 12%" />
+<col style="width: 21%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>LocNumber</p></th>
+<th class="head"><p>BuildingTIV</p></th>
+<th class="head"><p>LocPerilsCovered</p></th>
+<th class="head"><p>LocPeril</p></th>
+<th class="head"><p>LocDedType1Building</p></th>
+<th class="head"><p>LocDed1Building</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>100,000</p></td>
+<td><p>OO1;WW1</p></td>
+<td><p>WW1</p></td>
+<td><p>0</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>100,000</p></td>
+<td><p>OO1;WW1</p></td>
+<td><p>OO1</p></td>
+<td><p>0</p></td>
+<td><p>1000</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The field names in the examples above are described further in documents 4, 5 and 6.</p>
+<p><a class="reference external" href="https://github.com/OasisLMF/OpenDataStandards/tree/master/OpenExposureData/Docs/src">https://github.com/OasisLMF/OpenDataStandards/tree/master/OpenExposureData/Docs/src</a></p>
+<p>The minimum fields required in a location file are <strong>LocNumber, AccNumber, PortNumber, CountryCode, LocPerilsCovered, LocCurrency, BuildingTIV, ContentsTIV, BITIV, OtherTIV</strong>.</p>
+<p>The full set of fields in a location import file can be found by filtering on ‘Loc’ in the ‘Input File’ column of the ‘OED Input Fields’ sheet within the <em>Open Exposure Data Spec</em> spreadsheet.</p>
+<p>There are over 200 potential fields that could be used within the location file. However, it is not mandatory to use a field that contains no data and so, most OED location input files will contain far fewer than 200 columns.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="account-acc-import-file">
+<h2>Account (acc) Import File<a class="headerlink" href="#account-acc-import-file" title="Permalink to this headline">¶</a></h2>
+<p>The account file contains details of the policies and accounts that exist within the import portfolios. Most of the fields in this file relate to financial structures, including special conditions.</p>
+<p>This file is always required when modelling for insured (or gross) losses.</p>
+<p>An account may contain multiple policies and typically, each row will represent one policy. However, for cases with policy level financial structures that vary by peril or where a policy contains multiple special conditions, one policy may have multiple rows in the account file.</p>
+<p>The minimum fields required in an account file are <strong>AccNumber</strong>, <strong>AccCurrency, PolNumber, PortNumber, PolPerilsCovered</strong>.</p>
+<p>The full set of fields in an account import file can be found by filtering on ‘Acc’ in the ‘Input File’ column of the ‘OED Input Fields’ sheet within the <em>Open Exposure Data Spec</em> spreadsheet.</p>
+<p>Similarly to the loc file, there are over 200 potential fields that could be used within the account file, but it is not mandatory to use a field that contains no data and so, most OED account input files will contain far fewer than 200 columns.</p>
+<p>For example, if account level financial terms are not required (i.e. financial terms that apply across groups of policies) then all the financial fields starting with ‘Acc’ can be omitted (removing the need for 48 fields). If special conditions are not required another 48 fields can be excluded. See the section on financial structures along with the examples for details of how the financial structure fields operate together in document 6.</p>
+<p><a class="reference external" href="https://github.com/OasisLMF/OpenDataStandards/tree/master/OpenExposureData/Docs/src">https://github.com/OasisLMF/OpenDataStandards/tree/master/OpenExposureData/Docs/src</a></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="reinsurance-info-riinfo-import-file">
+<h2>Reinsurance Info (RIinfo) Import File<a class="headerlink" href="#reinsurance-info-riinfo-import-file" title="Permalink to this headline">¶</a></h2>
+<p>The reinsurance info file contains details of the reinsurance contracts that relate to the underlying portfolios, accounts and locations. There must be exactly one entry per reinsurance contract in this file. Any financial terms relating to reinsurance contracts should be entered in this file with the exception of the <strong>CededPercent</strong> for a surplus treaty (which should be entered in the reinsurance scope file).</p>
+<p>For a list of the reinsurance financial terms available and examples about how to specify such terms see the reinsurance section and associated examples.
+If there is no reinsurance, this import file is not required. If there is reinsurance, the minimum fields required are <strong>ReinsNumber, ReinsPeril, ReinsCurrency, InuringPriority, ReinsType, PlacedPercent</strong>.</p>
+<p><strong>ReinsNumber</strong> must be unique, as this links with the reinsurance scope file.</p>
+<p>The full set of fields in a reinsurance info import file can be found by filtering on ‘ReinsInfo’ in the ‘Input File’ column of the <em>Open Exposure Data Spec</em> spreadsheet. There are over 20 potential fields that could be used within the reinsurance info file. However, it is not mandatory to use a field that contains no data.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="reinsurance-scope-riscope-import-file">
+<h2>Reinsurance Scope (RIscope) Import File<a class="headerlink" href="#reinsurance-scope-riscope-import-file" title="Permalink to this headline">¶</a></h2>
+<p>The reinsurance scope file contains details of three different but related pieces of information:</p>
+<ul class="simple">
+<li><p>The scope of the reinsurance contract: i.e. which portfolios, accounts, locations are covered by a particular reinsurance contract.</p></li>
+<li><p>The risk level of the reinsurance contract: i.e. for reinsurance contracts with financial structures relating to a ‘risk’, the definition of what risk means.</p></li>
+<li><p>The CededPercent for a surplus treaty: which can vary for each risk covered by the treaty.</p></li>
+</ul>
+<p>The above three points are discussed in turn below.</p>
+<p>The scope of what a reinsurance contract applies to is defined by the ten ‘filter fields’ available in the reinsurance scope file: <strong>PortNumber, AccNumber, PolNumber, LocGroup, LocNumber, CedantName, ProducerName, LOB, CountryCode, ReinsTag.</strong></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>For example:</strong></p>
+<p>If a reinsurance contract applies to a particular portfolio ‘A’ then the value ‘A’ would be entered in the <strong>PortNumber</strong> field.</p>
+<p>If reinsurance applies only to account B in portfolio A, then ‘A’ would be entered in the <strong>PortNumber</strong> field and ‘B’ would be entered in the same row in the <strong>AccNumber</strong> field. In other words, entering criteria in the same row essentially applies an <em>AND</em> condition.
+Scope information relating to the same reinsurance contract can also be applied in separate rows: in this case each row would act like an <em>OR</em> condition for the filter.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>For example:</strong></p>
+<p>If <strong>PortNumber</strong> = ‘A’ is entered in one row and <strong>AccNumber</strong> = ‘B’ is entered in a separate row, then the scope of the reinsurance policy would apply to all records that match the condition: all records in portfolio ‘A’ <em>OR</em> any records in account number ‘B’.</p>
+<p>If <strong>LocNumber</strong> is used as a scope filter then <strong>AccNumber</strong> and <strong>PortNumber</strong> must be specified too (otherwise <strong>LocNumber</strong> does not uniquely identify a location).
+If <strong>PolNumber</strong> is used as a scope filter then <strong>AccNumber</strong> and <strong>PortNumber</strong> must be specified too (otherwise <strong>PolNumber</strong> does not uniquely identify a policy).</p>
+<p>The RiskLevel of a reinsurance contract refers to the level at which ‘risk’ terms apply. A ‘risk’ can either be defined at Location ‘LOC’, Location Group ‘LGR’, Policy ‘POL’ or Account level ‘ACC’. If a reinsurance contract does not contain risk specific terms then the <strong>RiskLevel</strong> field should be left blank. Note that it is not only per-risk treaties that have risk level terms. A facultative contract, a quota share treaty or even a catastrophe XL may also have risk level terms and thus require a risk level to be defined.</p>
+<p>Although the reinsurance scope and the risk level are two different concepts, for facultative contracts and surplus treaties, the OED format requires that the risk level for a particular contract should also be used to define the scope of the contract. This is because these contracts, by their nature, either apply to individual risks (facultative) or have a ceded percent that varies by risk (surplus), and so to have scope defined by fields different to the risk level would cause ambiguity and confusion.</p>
+<p>Surplus treaties require entry of <strong>CededPercent</strong> at the risk level. For example, if the risk level within a surplus treaty is location (LOC), then the user must list every location covered by the treaty in the <strong>LocNumber</strong> field (along with <strong>AccNumber</strong> and <strong>PortNumber</strong> to uniquely identify the location within the file) as well as the <strong>CededPercent</strong> for each location.</p>
+<p>If there is no reinsurance, the reinsurance scope import file is not required. If there is reinsurance, each reinsurance entry in the reinsurance info file must have at least one entry in the reinsurance scope file; some contracts will have multiple entries in the scope file.</p>
+<p>The minimum fields required are: <strong>ReinsNumber</strong> and <strong>RiskLevel</strong>, at least one of the ten filter fields, and <strong>CededPercent</strong> for surplus treaties.
+The full set of fields in a reinsurance scope import file can be found by filtering on ‘ReinsScope’ in the Input File column of the <em>Open Exposure Data Spec</em> spreadsheet. There are over 10 potential fields that could be used within the reinsurance scope file. However, it is not mandatory to use a field that contains no data.</p>
+<p>For a list of the reinsurance financial terms available and examples about how to specify such terms see the reinsurance section and associated examples. <strong>&lt;insert links here&gt;</strong></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

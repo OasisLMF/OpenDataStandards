@@ -1,0 +1,405 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Geography and Perils &mdash; OpenDataStandards 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> OpenDataStandards
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Geography and Perils</a><ul>
+<li><a class="reference internal" href="#country-codes">Country Codes</a></li>
+<li><a class="reference internal" href="#standardised-geographical-fields">Standardised Geographical Fields</a></li>
+<li><a class="reference internal" href="#flexible-geographical-fields">Flexible Geographical Fields</a></li>
+<li><a class="reference internal" href="#geocoding">Geocoding</a></li>
+<li><a class="reference internal" href="#peril-codes">Peril Codes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OpenDataStandards</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Geography and Perils</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/5_OED_Geography_and_Perils.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="geography-and-perils">
+<h1>Geography and Perils<a class="headerlink" href="#geography-and-perils" title="Permalink to this headline">¶</a></h1>
+<p>There are several aspects to geographical information in OED:</p>
+<ul class="simple">
+<li><p>Country codes</p></li>
+<li><p>Address information fields</p></li>
+<li><p>Geocoding information</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="section" id="country-codes">
+<h2>Country Codes<a class="headerlink" href="#country-codes" title="Permalink to this headline">¶</a></h2>
+<p>Country codes are stored in the <strong>CountryCode</strong> field and are based on the ISO3166 alpha-2 codes with the following additions:</p>
+<ul class="simple">
+<li><p><em>XB</em> = Bonaire</p></li>
+<li><p><em>XS</em> = Saba</p></li>
+<li><p><em>XE</em> = St Eustatius</p></li>
+<li><p><em>XW</em> = Worldwide exposure (not used for modelling)</p></li>
+<li><p>Offshore regions have been added as a direct one to one mapping from AIR’s CEDE offshore codes (the AIR three letter codes have been mapped to two-character codes for storage efficiency e.g. ‘A1’ for Alaska offshore)</p></li>
+</ul>
+<p>Full details of the permitted code values are in the OED specification spreadsheet.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="standardised-geographical-fields">
+<h2>Standardised Geographical Fields<a class="headerlink" href="#standardised-geographical-fields" title="Permalink to this headline">¶</a></h2>
+<p>The following fields are available for capturing geographical information in OED:</p>
+<ul class="simple">
+<li><p><strong>StreetAddress</strong>: The building number and street</p></li>
+<li><p><strong>PostalCode</strong>: The predominant full resolution postal code used (e.g. 5-digit zip code in the US)</p></li>
+<li><p><strong>City</strong>: City name</p></li>
+<li><p><strong>AreaCode</strong>: Code representing typically the largest geographical division in a country (e.g. State code). See the Open Exposure Data Spec spreadsheet for a list of values.</p></li>
+<li><p><strong>AreaName</strong>: Description of the <strong>AreaCode</strong> (e.g. State name)</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="flexible-geographical-fields">
+<h2>Flexible Geographical Fields<a class="headerlink" href="#flexible-geographical-fields" title="Permalink to this headline">¶</a></h2>
+<p>The OED format caters for a wide variety of models from different model developers. In order to allow sufficient flexibility to cope with different user and model developer requirements we have included five pairs of flexible geographical fields: <strong>GeogScheme1 / GeogName1</strong> to <strong>GeogScheme5 / GeogName5</strong>.
+This allows model developers and users to define their own geographical schemes (defined by an appropriate GeogScheme code) each with a corresponding set of GeogName values.</p>
+<p>For example, a model developer may want to split each country up into four equal areas ‘A’, ‘B’, ‘C’, ‘D’. In this case they would define a new GeogScheme code e.g. ‘QUAD’. They would communicate to users of their model that they must specify GeogName values ‘A’, ‘B’, ‘C’ or ‘D’ for their new ‘QUAD’ GeogScheme. The model user would then populate one of the GeogScheme / GeogName pairs with ‘QUAD’ and ‘A’, ‘B’, ‘C’ or ‘D’ respectively.</p>
+<p>This provides a large amount of flexibility to cope with different user and model developer requirements.
+GeogScheme codes are up to five characters (no special characters). The latest codes can be found in the Open Exposure Data Spec spreadsheet on the OED GitHub repository in <a class="reference external" href="https://github.com/OasisLMF/OpenDataStandards/tree/master/OpenExposureData/Docs">https://github.com/OasisLMF/OpenDataStandards/tree/master/OpenExposureData/Docs</a></p>
+<p>Users can also specify their own schemes (e.g. for reporting purposes). The only requirement here is that any user defined scheme codes <strong>must start with ‘X’</strong> in order to avoid a potential code clash with future model developer schemes.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="geocoding">
+<h2>Geocoding<a class="headerlink" href="#geocoding" title="Permalink to this headline">¶</a></h2>
+<p><strong>Latitude</strong> and <strong>Longitude</strong> fields are available within OED. However, a latitude and longitude pair in isolation gives no indication as to the resolution of the geocode, the confidence in the geocode or the geocoder used to derive the latitude and longitude.</p>
+<p><strong>AddressMatch</strong> allows information about the resolution of the geocode to be captured. For example, whether the latitude / longitude pair represents the centroid of a large area (e.g. a State) or the centre of an individual building.</p>
+<p><strong>GeocodeQuality</strong> allows the capture of a number between 0 and 1 representing a confidence score associated with the geocode (1 denoting perfect confidence, 0 denoting zero confidence).</p>
+<p><strong>Geocoder</strong> is a free text field that allows capture of the name and version of the geocoding engine used.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="peril-codes">
+<h2>Peril Codes<a class="headerlink" href="#peril-codes" title="Permalink to this headline">¶</a></h2>
+<p>The system for capturing which perils apply to different exposure elements and financial structures is designed to be flexible and extensible. Each peril is assigned a code and shown in the table below:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 62%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Peril</p></th>
+<th class="head"><p>Input Format Peril Code</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Earthquake - Shake only</p></td>
+<td><p>QEQ</p></td>
+</tr>
+<tr class="row-odd"><td><p>Fire Following</p></td>
+<td><p>QFF</p></td>
+</tr>
+<tr class="row-even"><td><p>Tsunami</p></td>
+<td><p>QTS</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sprinkler Leakage</p></td>
+<td><p>QSL</p></td>
+</tr>
+<tr class="row-even"><td><p>Landslide</p></td>
+<td><p>QLS</p></td>
+</tr>
+<tr class="row-odd"><td><p>Liquefaction</p></td>
+<td><p>QLF</p></td>
+</tr>
+<tr class="row-even"><td><p>Tropical Cyclone</p></td>
+<td><p>WTC</p></td>
+</tr>
+<tr class="row-odd"><td><p>Extra Tropical Cyclone</p></td>
+<td><p>WEC</p></td>
+</tr>
+<tr class="row-even"><td><p>Storm Surge</p></td>
+<td><p>WSS</p></td>
+</tr>
+<tr class="row-odd"><td><p>River / Fluvial Flood</p></td>
+<td><p>ORF</p></td>
+</tr>
+<tr class="row-even"><td><p>Flash / Surface / Pluvial Flood</p></td>
+<td><p>OSF</p></td>
+</tr>
+<tr class="row-odd"><td><p>Straight-line / other convective wind</p></td>
+<td><p>XSL</p></td>
+</tr>
+<tr class="row-even"><td><p>Tornado</p></td>
+<td><p>XTD</p></td>
+</tr>
+<tr class="row-odd"><td><p>Hail</p></td>
+<td><p>XHL</p></td>
+</tr>
+<tr class="row-even"><td><p>Snow</p></td>
+<td><p>ZSN</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ice</p></td>
+<td><p>ZIC</p></td>
+</tr>
+<tr class="row-even"><td><p>Freeze</p></td>
+<td><p>ZFZ</p></td>
+</tr>
+<tr class="row-odd"><td><p>NonCat</p></td>
+<td><p>BFR</p></td>
+</tr>
+<tr class="row-even"><td><p>Wildfire / Bushfire</p></td>
+<td><p>BBF</p></td>
+</tr>
+<tr class="row-odd"><td><p>NBCR Terrorism</p></td>
+<td><p>MNT</p></td>
+</tr>
+<tr class="row-even"><td><p>Conventional Terrorism</p></td>
+<td><p>MTR</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lightning</p></td>
+<td><p>XLT</p></td>
+</tr>
+<tr class="row-even"><td><p>Winterstorm Wind</p></td>
+<td><p>ZST</p></td>
+</tr>
+<tr class="row-odd"><td><p>Smoke</p></td>
+<td><p>BSK</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>The input format codes are designed to be easier to populate and recognize by an analyst. The reason for the slightly counterintuitive form of some of the abbreviations is that they are designed so that a predominant peril can quickly be identified by searching for one particular character in the abbreviations: ‘B’ for Fire, ‘O’ for Flood, ‘Q’ for Quake, ‘X’ for Convective storm, ‘Z’ for Winter storm, ‘W’ for Wind, ‘M’ for Terrorism.</p>
+<p>As well as the individual peril codes in the above table, there are also codes for common groupings of perils as shown in the table below.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 81%" />
+<col style="width: 19%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Peril Group</p></th>
+<th class="head"><p>Input Code</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Earthquake perils</p></td>
+<td><p>QQ1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Windstorm with storm surge</p></td>
+<td><p>WW1</p></td>
+</tr>
+<tr class="row-even"><td><p>Windstorm w/o storm surge</p></td>
+<td><p>WW2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Flood w/o storm surge</p></td>
+<td><p>OO1</p></td>
+</tr>
+<tr class="row-even"><td><p>Winter storm</p></td>
+<td><p>ZZ1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Convective storm</p></td>
+<td><p>XX1</p></td>
+</tr>
+<tr class="row-even"><td><p>Convective storm incl. winter storm (for RMS users)</p></td>
+<td><p>XZ1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Terrorism</p></td>
+<td><p>MM1</p></td>
+</tr>
+<tr class="row-even"><td><p>Wildfire with smoke</p></td>
+<td><p>BB1</p></td>
+</tr>
+<tr class="row-odd"><td><p>All perils</p></td>
+<td><p>AA1</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>There are several fields in the OED input tables for storing the peril codes.</p>
+<p>Firstly, there are two fields that indicate whether or not a peril is covered for a particular location or policy: <strong>LocPerilsCovered</strong> and <strong>PolPerilsCovered</strong> respectively. These can be used to exclude a certain peril completely from a location or a particular policy.</p>
+<p>Secondly, there are fields that indicate the perils that a particular level of financial structure covers: <strong>LocPeril, CondPeril, PolPeril, AccPeril</strong> and <strong>ReinsPeril</strong>. These indicate the perils that the financial terms (limits or deductibles) in that particular row of data apply to.</p>
+<p>Note that this means there are two peril code fields at location and policy level (<strong>LocPerilsCovered / LocPeril and PolPerilsCovered / PolPeril</strong>). The <strong>LocPerilsCovered</strong> and <strong>PolPerilsCovered</strong> fields define the overall coverage for a location or policy irrespective of financial fields. This makes it much easier for the analyst to filter locations or policies that cover specific perils.</p>
+<p>For all of these peril fields, the peril codes (either individual or peril-group codes) are entered separated by semi-colons. So for example, if a location covered wind (including all wind sub-perils) and earthquake (including all EQ sub-perils) then the users would enter <em>‘QQ1;WW1’</em> in the <strong>LocPerilsCovered</strong> field. If there is a policy level limit that only applies to wind, then the user would enter <em>‘WW1’</em> in the <strong>PolPerils</strong> field.</p>
+<p>The way these peril codes have been designed means there is great flexibility in indicating the coverage or exclusion of perils and allowing different limits and deductibles to apply to different perils. Some examples of this are shown in the examples part of the <strong>Financial Details</strong> section.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

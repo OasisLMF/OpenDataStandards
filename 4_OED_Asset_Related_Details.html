@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Asset Related Details &mdash; OpenDataStandards 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> OpenDataStandards
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Asset Related Details</a><ul>
+<li><a class="reference internal" href="#occupancy-type">Occupancy Type</a></li>
+<li><a class="reference internal" href="#construction-type">Construction Type</a></li>
+<li><a class="reference internal" href="#other-common-modifiers">Other Common Modifiers</a></li>
+<li><a class="reference internal" href="#flexi-tables">Flexi-tables</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">OpenDataStandards</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Asset Related Details</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/4_OED_Asset_Related_Details.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="asset-related-details">
+<h1>Asset Related Details<a class="headerlink" href="#asset-related-details" title="Permalink to this headline">¶</a></h1>
+<p>The following sections describe the OED specification for the asset value, usage, construction, and other modifiers that can influence the susceptibility of an asset to damage from a peril.
+Coverage total insurable value (TIV)</p>
+<p>Total insurable value (TIV) for each property is captured in four location level fields:</p>
+<ul class="simple">
+<li><p><strong>BuildingTIV</strong>: The total insurable value of the buildings.</p></li>
+<li><p><strong>ContentsTIV</strong>: The total insurance value of contents and stock.</p></li>
+<li><p><strong>BITIV</strong>: The total business interruption, or other time related, total insurable value.</p></li>
+<li><p><strong>OtherTIV</strong>: The total insurable value for elements other than the main building / contents / time elements. Typically used to represent the TIV for outbuildings / ap</p></li>
+</ul>
+<p>Total insurable value is not peril dependent. The currency of the TIV is specified in the <strong>LocCurrency</strong> field.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="section" id="occupancy-type">
+<h2>Occupancy Type<a class="headerlink" href="#occupancy-type" title="Permalink to this headline">¶</a></h2>
+<p>Occupancy codes are stored in the <strong>OccupancyCode</strong> field. The occupancy type list is predominantly a one to one mapping from the AIR CEDE occupancy codes, although some extra codes have been added. The broad categories of code and the number ranges are shown in the table below.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>OED Occupancy Code Range</p></th>
+<th class="head"><p>Broad Category of Occupancy</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1000</p></td>
+<td><p>Unknown</p></td>
+</tr>
+<tr class="row-odd"><td><p>1050 – 1099</p></td>
+<td><p>Residential</p></td>
+</tr>
+<tr class="row-even"><td><p>1100 – 1149</p></td>
+<td><p>Commercial</p></td>
+</tr>
+<tr class="row-odd"><td><p>1150 – 1199</p></td>
+<td><p>Industrial</p></td>
+</tr>
+<tr class="row-even"><td><p>1200 – 1249</p></td>
+<td><p>Religion / Government / Education</p></td>
+</tr>
+<tr class="row-odd"><td><p>1250 – 1299</p></td>
+<td><p>Transportation</p></td>
+</tr>
+<tr class="row-even"><td><p>1300 – 1349</p></td>
+<td><p>Utilities</p></td>
+</tr>
+<tr class="row-odd"><td><p>1350 – 1399</p></td>
+<td><p>Miscellaneous</p></td>
+</tr>
+<tr class="row-even"><td><p>2000 – 2799</p></td>
+<td><p>Industrial Facility</p></td>
+</tr>
+<tr class="row-odd"><td><p>3000 – 3999</p></td>
+<td><p>Offshore</p></td>
+</tr>
+</tbody>
+</table>
+<p>Although the code ranges above infer an extremely long list of codes there are less than 200 distinct occupancy codes in total. Yachts and automobiles are included under construction type codes rather than occupancy codes.
+Some users may have translated from a different (original) occupancy code to the OED occupancy code but would like to store the original occupancy code information. This can be done using the <strong>OrgOccupancyScheme</strong> and <strong>OrgOccupancyCode</strong> fields.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="construction-type">
+<h2>Construction Type<a class="headerlink" href="#construction-type" title="Permalink to this headline">¶</a></h2>
+<p>Construction codes are stored in the <strong>ConstructionCode</strong> field. The construction type list is predominantly a one to one mapping from the AIR CEDE construction codes, although some extra codes have been added. The broad categories of code and the number ranges are shown in table below.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>OED Construction Code Range</p></th>
+<th class="head"><p>Broad Category of Construction</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>5000</p></td>
+<td><p>Unknown</p></td>
+</tr>
+<tr class="row-odd"><td><p>5050 – 5099</p></td>
+<td><p>Wood</p></td>
+</tr>
+<tr class="row-even"><td><p>5100 – 5149</p></td>
+<td><p>Masonry</p></td>
+</tr>
+<tr class="row-odd"><td><p>5150 – 5199</p></td>
+<td><p>Concrete</p></td>
+</tr>
+<tr class="row-even"><td><p>5200 – 5249</p></td>
+<td><p>Steel</p></td>
+</tr>
+<tr class="row-odd"><td><p>5250 – 5299</p></td>
+<td><p>Composite</p></td>
+</tr>
+<tr class="row-even"><td><p>5300 – 5349</p></td>
+<td><p>Special</p></td>
+</tr>
+<tr class="row-odd"><td><p>5350 – 5399</p></td>
+<td><p>Mobile Homes</p></td>
+</tr>
+<tr class="row-even"><td><p>5400 – 5449</p></td>
+<td><p>Bridges</p></td>
+</tr>
+<tr class="row-odd"><td><p>5450 – 5499</p></td>
+<td><p>Roads, Railroads, Runways</p></td>
+</tr>
+<tr class="row-even"><td><p>5500 – 5549</p></td>
+<td><p>Dams</p></td>
+</tr>
+<tr class="row-odd"><td><p>5550 – 5599</p></td>
+<td><p>Tunnels</p></td>
+</tr>
+<tr class="row-even"><td><p>5600 – 5649</p></td>
+<td><p>Storage Tanks</p></td>
+</tr>
+<tr class="row-odd"><td><p>5650 – 5699</p></td>
+<td><p>Pipelines</p></td>
+</tr>
+<tr class="row-even"><td><p>5700 – 5749</p></td>
+<td><p>Chimneys</p></td>
+</tr>
+<tr class="row-odd"><td><p>5750 – 5799</p></td>
+<td><p>Towers</p></td>
+</tr>
+<tr class="row-even"><td><p>5800 – 5849</p></td>
+<td><p>Equipment</p></td>
+</tr>
+<tr class="row-odd"><td><p>5850 – 5899</p></td>
+<td><p>Automobiles</p></td>
+</tr>
+<tr class="row-even"><td><p>5900 – 5949</p></td>
+<td><p>Yachts</p></td>
+</tr>
+<tr class="row-odd"><td><p>5950 – 5999</p></td>
+<td><p>Miscellaneous</p></td>
+</tr>
+<tr class="row-even"><td><p>6000 – 6099</p></td>
+<td><p>Marine Cargo General</p></td>
+</tr>
+<tr class="row-odd"><td><p>6100 – 6149</p></td>
+<td><p>Marine Cargo Combustible</p></td>
+</tr>
+<tr class="row-even"><td><p>6150 – 6199</p></td>
+<td><p>Marine Cargo Non-Combustible</p></td>
+</tr>
+<tr class="row-odd"><td><p>7000 - 7999</p></td>
+<td><p>Offshore</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Although the code ranges above infer a very long list of codes there are less than 200 construction codes in total.
+Some users may have translated from a different (original) construction code scheme to the OED construction code scheme but would like to store the original construction code information. This can be done using the <strong>OrgConstructionScheme</strong> and <strong>OrgConstructionCode</strong> fields.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="other-common-modifiers">
+<h2>Other Common Modifiers<a class="headerlink" href="#other-common-modifiers" title="Permalink to this headline">¶</a></h2>
+<p>While different catastrophe models will use different modifiers to adjust the vulnerability of an asset, the following are the most commonly used modifiers:</p>
+<ul class="simple">
+<li><p><strong>YearBuilt</strong>: the year the building was built. <strong>YearUpgraded</strong>, <strong>RoofYearBuil</strong> are also modifiers that allow the user to add additional information.</p></li>
+<li><p><strong>NumberOfStoreys</strong>: The total number of storeys in a building. <strong>BuildingHeight</strong> is also available for the user to add in the precise height of the building if this is known. <strong>FloorsOccupied</strong> allows the specific floors in the building that are occupied to be specified.</p></li>
+<li><p><strong>NumberOfBuildings</strong>: The number of buildings represented by this location. This is commonly used to indicate the presence of aggregated data. If, instead, a user has specific details about different locations, but wants to denote a linkage of some kind between each location then the <strong>LocGroup</strong> field can be used to link individual locations (either for reporting purposes or to define a reinsurance ‘risk’ level).  <strong>CorrelationGroup</strong> can be used to denote a correlation in secondary uncertainty between groups of locations.</p></li>
+<li><p><strong>FloorArea</strong> &amp; <strong>FloorAreaUnit</strong>: The total floor area occupied, summing the area of multiple floors.</p></li>
+</ul>
+<p>Other modifiers, either peril specific or less commonly used by models, are available and are listed in the specification spreadsheet. They can be identified by filtering on the SecMod column in the ‘OED Input Fields’ sheet in the specification spreadsheet.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<div class="section" id="flexi-tables">
+<h2>Flexi-tables<a class="headerlink" href="#flexi-tables" title="Permalink to this headline">¶</a></h2>
+<p>Despite the wide range of fields available in OED, there is always the possibility that a user needs to enter or store information without a corresponding OED field. This can be achieved through the flexi-table functionality within OED, which essentially provides a key-value pair back end table at the main hierarchical levels.
+To enter additional field / values, a user can enter additional columns: <strong>FlexiLocZZZ</strong>, <strong>FlexPolZZZ</strong>, <strong>FlexiAccZZZ</strong>, where ‘ZZZ’ contains the name of the new field.
+For example, if a user wants to store information on house colour, they could add an additional column to the location input file with the fieldname <em>FlexiLocHouseColour</em>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
